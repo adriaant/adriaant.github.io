@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>endo news &amp; tips</title>
+    <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/endo/news/" />
+    <link rel="self" type="application/atom+xml" href="http://infinite-sushi.com/software/endo/news/atom.xml" />
+   <id>tag:infinite-sushi.com,2008:/software/endo/news//9</id>
+    <updated>2008-01-03T05:06:49Z</updated>
+    <subtitle>All the news about endo</subtitle>
+    <generator uri="http://www.sixapart.com/movabletype/">Movable Type 3.34</generator>
+ 
+<entry>
+    <title>endo is now donation-ware</title>
+    <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/endo/news/2008/01/endo_is_now_donationware.php" />
+    <id>tag:infinite-sushi.com,2008:/software/endo/news//9.1777</id>
+    
+    <published>2008-01-03T05:06:47Z</published>
+    <updated>2008-01-03T05:06:49Z</updated>
+    
+    <summary>As explained on my personal blog, endo is now donation-ware!...</summary>
+    <author>
+        <name>Adriaan</name>
+        
+    </author>
+            <category term="announcements" />
+    
+   <category term="34" label="endo" scheme="http://www.sixapart.com/ns/types#tag" />
+   
+    <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/endo/news/">
+        <![CDATA[<p>As explained on my <a href="http://blog.kung-foo.tv/archives/001776.html">personal blog</a>, endo is now donation-ware!</p>
+]]>
+        
+    </content>
+</entry>
+<entry>
+    <title>Tune my feeds</title>
+    <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/endo/news/2007/06/tune_my_feeds.php" />
+    <id>tag:kula.jp,2007:/software/endo/news//9.1758</id>
+    
+    <published>2007-06-15T06:51:47Z</published>
+    <updated>2007-06-15T06:51:54Z</updated>
+    
+    <summary>
+</summary>
+    <author>
+        <name>Adriaan</name>
+        
+    </author>
+            <category term="tips" />
+    
+   <category term="31" label="audio" scheme="http://www.sixapart.com/ns/types#tag" />
+   <category term="32" label="ipod" scheme="http://www.sixapart.com/ns/types#tag" />
+   
+    <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/endo/news/">
+        <![CDATA[<p>Adam Burt emails me to inform about a utility app he wrote: <a href="http://blogs.rave.ac.uk/blojsom/blog/aburt/Software/2007/05/25/TuneMyFeeds-1-1.html">TuneMyFeeds</a>. It converts articles to audio, so you can listen instead of read, which is useful if you're travelling with your iPod.</p>
+]]>
+        
+    </content>
+</entry>
+<entry>
+    <title>1.0.42</title>
+    <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/endo/news/2007/06/101.php" />
+    <id>tag:kula.jp,2006:/software/endo/news//9.1661</id>
+    
+    <published>2007-06-15T06:43:18Z</published>
+    <updated>2007-07-31T14:38:03Z</updated>
+    
+    <summary>Bug fix release.
+</summary>
+    <author>
+        <name>Adriaan</name>
+        
+    </author>
+            <category term="announcements" />
+    
+   <category term="33" label="bugfix" scheme="http://www.sixapart.com/ns/types#tag" />
+   <category term="34" label="endo" scheme="http://www.sixapart.com/ns/types#tag" />
+   
+    <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/endo/news/">
+        <![CDATA[<p>1.0.42 is a bug fix release. It fixes a possible crash when you have Safari 3 installed.</p>
+<p>It's a recommended upgrade that you can do automatically from within endo (Help → Check for Updates) or <a href="http://infinite-sushi.com/software/endo/download/">manually</a>.</p>
+]]>
+        
+    </content>
+</entry>
+<entry>
+    <title>Events in endo: A screencast</title>
+    <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/endo/news/2006/05/events_in_endo_a_screencast.php" />
+    <id>tag:kula.jp,2006:/software/endo/news//9.1708</id>
+    
+    <published>2006-05-24T08:41:36Z</published>
+    <updated>2006-05-24T09:41:43Z</updated>
+    
+    <summary>Drew McLellan made a really nice screencast of endo&apos;s events support.  Check it out.</summary>
+    <author>
+        <name>Adriaan</name>
+        
+    </author>
+            <category term="tips" />
+    
+   
+    <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/endo/news/">
+        <![CDATA[<p>
+Drew McLellan made a really nice screencast of endo's events support. <a href="http://allinthehead.com/retro/288/hcalendar-in-endo">Check it out</a>.
+</p>
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/aggregator" rel="tag">aggregator</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a>, <a href="http://www.technorati.com/tag/events" rel="tag">events</a>, <a href="http://www.technorati.com/tag/hCalendar" rel="tag">hCalendar</a>, <a href="http://www.technorati.com/tag/ical" rel="tag">ical</a>, <a href="http://www.technorati.com/tag/microformat" rel="tag">microformat</a></p><!-- technorati tags end -->]]>
+        
+    </content>
+</entry>
+<entry>
+    <title>4½ mice</title>
+    <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/endo/news/2006/05/4_mice.php" />
+    <id>tag:kula.jp,2006:/software/endo/news//9.1706</id>
+    
+    <published>2006-05-16T22:55:43Z</published>
+    <updated>2007-07-31T14:38:03Z</updated>
+    
+    <summary>From MacWorld.</summary>
+    <author>
+        <name>Adriaan</name>
+        
+    </author>
+            <category term="announcements" />
+    
+   
+    <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/endo/news/">
+        <![CDATA[<p>endo got a <a href="http://www.macworld.com/2006/05/reviews/endo10/index.php"><img src="http://infinite-sushi.com/software/endo/news/images/revmainmouse45.gif" height="15" width="44" alt="4 and a half mice" /> review</a> in MacWorld! A quote:</p>
+<blockquote>
+“endo 1.0.21 is a good choice for feed addicts with a lot of subscriptions, especially those who are also bloggers or who download lots of media files. I have never used a better RSS news reader.”
+</blockquote>
+
+
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/aggregator" rel="tag">aggregator</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a>, <a href="http://www.technorati.com/tag/macworld" rel="tag">macworld</a>, <a href="http://www.technorati.com/tag/review" rel="tag">review</a></p><!-- technorati tags end -->]]>
+        
+    </content>
+</entry>
+<entry>
+    <title>How to write a plugin</title>
+    <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/endo/news/2006/04/how_to_write_a_plugin.php" />
+    <id>tag:kula.jp,2006:/software/endo/news//9.1691</id>
+    
+    <published>2006-04-24T09:52:18Z</published>
+    <updated>2007-07-31T14:38:03Z</updated>
+    
+    <summary>Documentation on how to write your own endo plugin (with sample code).</summary>
+    <author>
+        <name>Adriaan</name>
+        
+    </author>
+            <category term="tips" />
+    
+   
+    <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/endo/news/">
+        <![CDATA[<p>
+endo's subscription handling can be extended using plugins. You can create plugins that configure a subscription, provide a feed, and/or parse a feed. endo comes pre-packaged with three plugins that handle subscriptions for del.icio.us, Flickr, and Technorati and one that runs user-defined scripts. To create your own plugin, you will need to know Objective-C and Apple's Cocoa Framework. 
+</p><p>
+Plugins are packages with the "endoplug" extension and the following directory stucture:
+</p><div align="left">
+<img src="http://infinite-sushi.com/software/endo/news/images/plugin-dir.jpg" height="184" width="222" alt="plugin directory structure" /></a>
+</div><p>
+An "endoplug" package must have an "Info.plist" at the root level, with keys as in the following example:
+</p><pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+  &lt;key&gt;CreatorName&lt;/key&gt;
+  &lt;string&gt;Adriaan Tijsseling&lt;/string&gt;
+  &lt;key&gt;CreatorEmail&lt;/key&gt;
+  &lt;string&gt;endo@dot.com&lt;/string&gt;
+  &lt;key&gt;CreatorWebsite&lt;/key&gt;
+  &lt;string&gt;http://blog.kung-foo.tv&lt;/string&gt;
+  &lt;key&gt;ComponentWebsite&lt;/key&gt;
+  &lt;string&gt;http://infinite-sushi.com/endo&lt;/string&gt;
+  &lt;key&gt;ComponentComments&lt;/key&gt;
+  &lt;string&gt;This plugin creates subscriptions for Technorati tags and cosmos.&lt;/string&gt;
+  &lt;key&gt;ComponentCopyright&lt;/key&gt;
+  &lt;string&gt;http://creativecommons.org/licenses/by-nc-nd/2.5/&lt;/string&gt;
+  &lt;key&gt;ComponentVersion&lt;/key&gt;
+  &lt;string&gt;1.0&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</pre><p>
+You can download the <a href="http://infinite-sushi.com/software/endo/download/PluginSample.zip">XCode project for a sample plugin</a>. This sample illustrates the plugin protocol by showing how to get a feed from the World of Warcraft home page. This page has no feed, so we use our plugin to extract from the HTML contents. It's just for demo purposes. The code is heavily commented and should be transparent. To adapt this code to your own plugin, please make sure to rename ALL occurrences of "PluginSample", in particular the class and plugin name. This includes occurrences in the Target and Build settings. The plugin's name is defined in the build settings for the active target and is referred to in most places by $(PRODUCT_NAME). You also must conform to the plugin protocol defined in the PluginInterface.h file.
+</p><p>
+If you have questions about the code, feel free to ask in the comments. Based on user input I can probably write a more elaborated documentation. For now, please play around with the <a href="http://infinite-sushi.com/software/endo/download/PluginSample.zip">sample code</a>.
+</p>
+
+
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/documentation" rel="tag">documentation</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a>, <a href="http://www.technorati.com/tag/plugin" rel="tag">plugin</a>, <a href="http://www.technorati.com/tag/sample code" rel="tag">sample code</a></p><!-- technorati tags end -->]]>
+        
+    </content>
+</entry>
+<entry>
+    <title>Let endo users read your blog in your style</title>
+    <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/endo/news/2006/03/let_endo_users_read_your_blog.php" />
+    <id>tag:kula.jp,2006:/software/endo/news//9.1679</id>
+    
+    <published>2006-03-14T12:20:34Z</published>
+    <updated>2007-07-31T14:38:02Z</updated>
+    
+    <summary>Subscriptions in endo can be configured to display articles using the originating website&apos;s style-sheet.</summary>
+    <author>
+        <name>Adriaan</name>
+        
+    </author>
+            <category term="tips" />
+    
+   
+    <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/endo/news/">
+        <![CDATA[<p>
+Subscriptions in endo can be configured to display articles using the originating website's style-sheet. This gives bloggers the option to let users view their blog entries in their own style. For example, here's <a href="http://blog.kung-foo.tv/">my blog</a>'s subscription:
+</p>
+<div align="center">
+<img src="http://infinite-sushi.com/software/endo/news/images/sitestyle.jpg" height="176" width="315" alt="Site's style" class="framed" /><br /><br />
+</div>
+<p>
+The "Use site's css" option is checked. Any article displayed in endo's main viewer uses my blog's style-sheet. For this to work, the style sheet has to define an "aggregator" ID. This is the ID of the main DIV element in endo's HTML template for articles. Using this name, "aggregator", is general enough so that any other aggregator that supports external style-sheets can use it. It's always nice to have a standard after all. The rest of my CSS tries to match my blog's look as much as possible. I also define styles for INS and DEL, which are used by endo to mark changes in an article (you need to turn that on in Preferences). 
+</p><pre>
+#aggregator { margin:1em; }
+#aggregator #item {
+  padding: 1em 2.6em 2.6em 2.6em;
+  background-color: #fff;
+}
+#aggregator #item p {
+  margin: 0.8em 0 0.8em 0;
+  font-size:1em;
+  font-weight:normal;
+  line-height: 1.33em;
+  text-align:justify;
+}
+#aggregator #content { margin: 0; }
+#aggregator h1 { border-bottom: 1px solid #999; }
+#aggregator h1 a { color: #ad5000; text-decoration: none; }
+#aggregator h2 {
+	text-align: left;
+	font-size: 0.8em;
+	margin: 0.2em 0 0.3em 0;
+	color: #999;
+}
+#aggregator img { border: none; }
+#categories {
+	text-align: right;
+	font-size: 0.8em;
+	margin: 0.3em 0 0.3em 0;
+	color: #999;
+}
+ins.diff { background: #aaffab; text-decoration:none; }
+del.diff { background: #fddacb; text-decoration:none; }
+</pre><p>
+If your blog or website supports the #aggregator ID, <a href="http://infinite-sushi.com/contact/">drop me a line</a>. Once I've got a list compiled, I will link them here. 
+</p>
+
+
+
+
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/aggregator" rel="tag">aggregator</a>, <a href="http://www.technorati.com/tag/css" rel="tag">css</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a></p><!-- technorati tags end -->]]>
+        
+    </content>
+</entry>
+<entry>
+    <title>Designing the endo icon</title>
+    <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/endo/news/2006/03/designing_the_endo_icon.php" />
+    <id>tag:kula.jp,2006:/software/endo/news//9.1674</id>
+    
+    <published>2006-03-11T13:01:01Z</published>
+    <updated>2007-07-31T14:38:02Z</updated>
+    
+    <summary>Mike Rohde reveals his creative design process of the endo icon.  A insightful read.</summary>
+    <author>
+        <name>Adriaan</name>
+        
+    </author>
+            <category term="announcements" />
+    
+   
+    <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/endo/news/">
+        <![CDATA[<p>
+Mike Rohde reveals his <a href="http://www.rohdesign.com/weblog/archives/001700.html">creative design process</a> of the <a href="http://infinite-sushi.com/software/endo/">endo</a> icon. An insightful read.
+</p>
+
+
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/design" rel="tag">design</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a>, <a href="http://www.technorati.com/tag/icon" rel="tag">icon</a></p><!-- technorati tags end -->]]>
+        
+    </content>
+</entry>
+<entry>
+    <title>Introducing “endo”</title>
+    <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/endo/news/2006/03/welcome.php" />
+    <id>tag:kula.jp,2006:/endo/news//9.1655</id>
+    
+    <published>2006-03-04T04:56:11Z</published>
+    <updated>2007-07-31T14:38:02Z</updated>
+    
+    <summary>Public release of a new MacOSX desktop aggregator.</summary>
+    <author>
+        <name>Adriaan</name>
+        
+    </author>
+            <category term="announcements" />
+    
+   
+    <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/endo/news/">
+        <![CDATA[<p>
+I'm very pleased to release a new app called “endo” to the public (as of Monday 6th, 2006). It's yet another aggregator for the Mac OS X, but this one differs from the others in that it approaches feed reading a bit differently. endo sees feeds as a continuous stream of information that can be filtered and grouped as you see fit. endo even has a special groups bar — in which groups can be displayed as customizable icons or text — for easy group navigation using mouse or keyboard (you can even type the first few letters of a group name and endo will jump right to it). Keyboard navigation is omnipresent. There is even a uniform scrolling mode: Press the down arrow to read articles, it will scroll the article's content as well, and then skip to the next when the end of the article has been reached. Give that mouse a little break. 
+</p><p>
+Take a look at the <a href="http://infinite-sushi.com/software/endo/">info page</a> and the <a href="http://infinite-sushi.com/software/endo/">screenshots</a> or just <a href="http://infinite-sushi.com/software/endo/download/">download endo</a> and give it a whirl. endo has documentation built into it, accessible via the Help menu.
+</p><p>
+endo is only available for 10.4, since it uses a lot of new features that Apple introduced in 10.4. That doesn't just include Spotlight, but many under-the-hood changes made by Apple. 
+</p><p>
+This website will soon have sections for plugins, styles, and group icons. In the meantime, you can send your creations to adriaan at infinite-sushi.com. Documentation for writing plugins is forthcoming. A how-to on creating a custom style is included in the download and in endo's Help book. 
+</p><p>
+If you have questions, suggestions, or bug-reports, please use the <a href="http://infinite-sushi.com/contact/">contact form</a>. I hope you'll like endo!
+</p>
+
+
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/10.4" rel="tag">10.4</a>, <a href="http://www.technorati.com/tag/aggregator" rel="tag">aggregator</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a>, <a href="http://www.technorati.com/tag/macosx" rel="tag">macosx</a>, <a href="http://www.technorati.com/tag/universal" rel="tag">universal</a></p><!-- technorati tags end -->]]>
+        
+    </content>
+</entry>
+
+</feed> 
+

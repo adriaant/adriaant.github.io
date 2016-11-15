@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<title>"Whatever"</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="whatever.css" type="text/css">
+<meta name="keywords" content="desktop, blog, blogging, client, sharing, imood, mood, emoticons, smilies">
+<meta name="description" content="Whatever, a menubar utility to change and publish moods">
+<meta name="author" content="Adriaan Tijsseling">
+<meta name="robots" content="all">
+</head>
+<body>
+
+<div id="main">
+
+<div id="banner">
+<h1>"Whatever": a mood setter</h1>
+</div>
+
+<div id="column">
+<h2>What is "Whatever"?</h2>
+<p>
+"Whatever" is a small and simple utility that sits in your menubar and with which you can set your current mood and publish it on <a href="http://imood.com/">imood.com</a> or "Whatever" other online presence you have. The power of "Whatever" is in the plugins. The GUI is just for local use, but using the right plugin or writing your own, you can take a mood and do whatever you want with it. The default plugin publishes the current mood to imood.com and notifies you via <a href="http://www.growl.info">Growl</a> on success or failure. 
+</p>
+
+<h2>Screenshots</h2>
+<p>A sample set of screen captures (click to see the larger images):</p>
+<div align="center">
+<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td>
+<a href="whatever-shot.jpg" onclick="window.open('http://infinite-sushi.com/whatever/whatever-shot.jpg','menubar','left=100,top=100,width=311,height=539,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes');return false"><img src="sm_whatever-shot.jpg" height="125" width="125" alt="menubar" border="0"></a>
+<br>Menubar
+</td><td>
+<a href="whatever-shot-prefs.jpg" onclick="window.open('http://infinite-sushi.com/whatever/whatever-shot-prefs.jpg','stream settings','left=100,top=100,width=304,height=365,scrollbars=yes,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes');return false"><img src="sm_whatever-shot-prefs.jpg" height="125" width="125" alt="prefs" border="0"></a>
+<br>Preferences Window
+</td></tr></tbody></table>
+</div>
+
+<h2>Download</h2>
+<p>
+The current version (1.0.2) for MacOS 10.3 or higher is available as a zip archive: 
+<a href="whatever.zip">whatever.zip</a>. It's small and it's free.
+</p>
+
+<h2>A quick how-to</h2>
+<ol>
+<li>Unpack <a href="whatever.zip">whatever.zip</a> and launch the app. It will nestle itself snuggly in your menubar.</li>
+<li>Select <span class="system">Preferences</span> from the menu bar.</li>
+<li>If desired, enter the email address and password for your imood.com account in the iMoodUpdater pane and you're good to go.</li>
+<li>You can modify your mood and associated smilies via the Preferences. The utility comes with a list of built-in mood terms recognized by <a href="http://imood.com/">imood.com</a>. It is not possible to define new mood terms.</li>
+</ol>
+
+<h2>Add-ons</h2>
+<p>It's easy to use alternative smilies for the display. Included in the download are "<a href="http://www.adiumxtras.com/index.php?a=xtras&xtra_id=1216">sketches</a>" and "<a href="http://www.adiumxtras.com/index.php?a=xtras&xtra_id=980">iChat</a>" smilies. They are plain packages (with a .smilies file extension) containing numbered transparent images in either png or tif format. The images must have .png, .tif, or .tiff extensions, and they must be numbered. There cannot be more than 32 images as that is the maximum number of smilies supported on <a href="http://imood.com/">imood.com</a>. Note that <a href="http://imood.com/">imood.com</a> uses its own smilies set, so any smilies set you use in "Whatever" has no effect on the smiley on <a href="http://imood.com/">imood.com</a>. "Whatever" uses the index of the image file to indicate which smiley <a href="http://imood.com/">imood.com</a> should use for your mood.
+</p><p>
+Smilies and plugins should be installed in ~/Library/Application Support/Whatever/, in the subdirectories "smilies" and "plugins", respectively. If you double-click the packages, they will be automatically installed and activated. If the packages show up as folders, you may have to restart the Finder so that it recognizes the new extensions.
+</p>
+
+<h2>Advanced usage</h2>
+<p>
+"Whatever" has a plugin architecture. The iMoodUpdater is a plugin and there is also a "BlogPublisher" plugin included in the download. This plugin is for the advanced user with server access. It passes the current mood details on to a user-specified server-side script, which should then handle the mood however it wishes. My blog uses the following PHP script, for example:
+</p>
+<pre>&lt;?php
+// name of mood file, must exist and be writable by all
+$moodfile = 'mood.txt';
+
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
+    processMood( $HTTP_POST_VARS );
+else
+{
+    // do not allow access to script via browser
+    header('Location:http://somewhere.com');
+}
+
+function processMood( $var_list )
+{
+    global $moodfile;
+    $password = 'password'; // prevent unauthorized access to script
+    
+    extract( $var_list );   // get post parameters
+    if ( is_null($mood) or is_null($code) )
+        die( "&lt;error&gt;Invalid usage of script&lt;/error&gt;" );
+    if ( $code != $password )
+        die( "&lt;error&gt;Incorrect password&lt;/error&gt;" );
+    $date = date("m/d/y, G:i"); 
+    $moodString = $mood .
+        "&lt;img src=\"http://somewhere.com/$image\" align=\"middle\" /&gt;" .
+        "&lt;span style=\"font-size:8px;\"&gt;($date)&lt;/span&gt;";
+    // write to file
+    $mfile = fopen( $moodfile, "w" );
+    fwrite( $mfile, $moodString );
+    fclose( $mfile );
+}
+?&gt;
+</pre>
+<p>The script looks for parameters 'code', 'mood', and 'image'. 'code' is the password string to prevent unauthorized use of the script, 'mood' is the mood string (e.g. "happy"), and 'image' is the smiley's filename (e.g. "0.png"). I have the smiley images stored on my server. The script stores the current mood in a local file, the contens of which is then read in into my blog's index page via a simple:</p>
+<pre>&lt;? include('/path/to/moods/mood.txt'); ?&gt;
+</pre>
+<p>
+You can use any script as long as it takes the mentioned parameters that are provided via an HTTP POST request. 
+</p>
+
+<h2>Writing your own plugin</h2>
+<p>
+Source code for the BlogPublisher plugin is available for download as <a href="sample_plugin.zip">sample_plugin.zip</a>. Plugins are Cocoa bundles with a "whatever" wrapper and must observe the WEPluginProtocol defined in the "PluginInterface.h" file (comments included). In addition, you're required to store and access defaults via the NSUserDefaultsController. Reserved default value keys start with "_WE_" and should not be accessed at all. Make sure your plugin's name is unique and that your keys for default values have a unique prefix. If you want to use Growl, just post a notification with the name "growlNotification" and a string value as object. Apart from that, the sample code is pretty straightforward if you're a Cocoa programmer.
+</p>
+
+<h2>Credits</h2>
+<p>
+I took the liberty to use <a href="http://www.paperdance.com">Karen Saul</a>'s "<a href="http://www.adiumxtras.com/index.php?a=xtras&xtra_id=1218">Sketchy</a>" for the app's icon as well as the "<a href="http://www.adiumxtras.com/index.php?a=xtras&xtra_id=1216">sketches</a>" smilies set. The "<a href="http://www.adiumxtras.com/index.php?a=xtras&xtra_id=980">iChat</a>" smilies set is from <a href="http://www.codery.com">Jesse Hattabaugh</a>.
+</p>
+
+<h2>Support</h2>
+<p>
+Since this is freeware, support is limited. But feel free to contact me for bug reports or suggestions. 
+</p>
+
+</div>
+</div>
+
+
+</body></html>

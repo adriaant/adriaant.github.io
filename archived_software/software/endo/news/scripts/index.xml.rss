@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+   <channel>
+      <title>endo scripts</title>
+      <link>http://infinite-sushi.com/software/endo/news/</link>
+      <description>All the news about endo</description>
+      <language>en</language>
+      <copyright>Copyright 2008</copyright>
+      <lastBuildDate>Thu, 03 Jan 2008 14:06:47 +0900</lastBuildDate>
+      <generator>http://www.sixapart.com/movabletype/?v=3.34</generator>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs> 
+
+            <item>
+         <title>A mail-to AppleScript</title>
+         <description><![CDATA[<p>
+<a href="http://blogs.rave.ac.uk/blojsom/blog/mmetcalfe/">Miles Metcalfe</a> sent me an AppleScript to mail the selected headline. It's as simple as this:
+</p><pre>
+tell application "endo"
+  try
+    set this_article to the (selected article)
+    set this_title to title of this_article
+    set this_link to link of this_article
+    set this_body to this_link & " - " & this_title & return
+    tell application "Mail"
+      set mail_message to make new outgoing message with properties {subject:this_title, content:this_body}
+      activate
+      tell mail_message to set visible to true
+    end tell
+  on error msg number num
+    if num is not -128 then
+      display dialog msg buttons {"OK"} default button 1 with icon stop
+    end if
+  end try
+end tell
+</pre>
+
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/aggregator" rel="tag">aggregator</a>, <a href="http://www.technorati.com/tag/applescript" rel="tag">applescript</a>, <a href="http://www.technorati.com/tag/mail" rel="tag">mail</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a></p><!-- technorati tags end -->]]></description>
+         <link>http://infinite-sushi.com/software/endo/news/2006/03/a_mailto_applescript.php</link>
+         <guid>http://infinite-sushi.com/software/endo/news/2006/03/a_mailto_applescript.php</guid>
+         <category>scripts</category>
+         <pubDate>Wed, 08 Mar 2006 16:22:46 +0900</pubDate>
+      </item>
+      
+   </channel>
+</rss>

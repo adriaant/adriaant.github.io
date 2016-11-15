@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+   <channel>
+      <title>endo icons</title>
+      <link>http://infinite-sushi.com/software/endo/news/</link>
+      <description>All the news about endo</description>
+      <language>en</language>
+      <copyright>Copyright 2008</copyright>
+      <lastBuildDate>Thu, 03 Jan 2008 14:06:47 +0900</lastBuildDate>
+      <generator>http://www.sixapart.com/movabletype/?v=3.34</generator>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs> 
+
+            <item>
+         <title>Default</title>
+         <description><![CDATA[<div align="center">
+<img src="http://infinite-sushi.com/software/endo/news/icons/default.jpg" height="260" width="337" alt="default" />
+</div><p>
+A set of default icons for the endo groups bar. Most of these are included in the default subscriptions offered by endo's startup assistant.
+</p><p>
+Download <a href="http://infinite-sushi.com/software/endo/news/icons/default.zip">default.zip</a>.
+</p><p>
+To use an icon, launch endo and open the Subscriptions Manager (use the cmd-2 shortcut). Select a group, then drag and drop an icon file on the group's icon well. 
+</p>
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/aggregator" rel="tag">aggregator</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a>, <a href="http://www.technorati.com/tag/icons" rel="tag">icons</a></p><!-- technorati tags end -->]]></description>
+         <link>http://infinite-sushi.com/software/endo/news/2006/03/default.php</link>
+         <guid>http://infinite-sushi.com/software/endo/news/2006/03/default.php</guid>
+         <category>icons</category>
+         <pubDate>Tue, 14 Mar 2006 21:00:37 +0900</pubDate>
+      </item>
+      
+   </channel>
+</rss>

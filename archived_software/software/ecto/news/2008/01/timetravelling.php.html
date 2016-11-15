@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>infinite-sushi.com - Time-travelling</title>
+	<link rel="stylesheet" type="text/css" href="../../../../../_site/skin/style/style.css">
+	<script type="text/javascript" src="../../../../../_site/skin/js/global.js"></script>
+	<script type="text/javascript" src="../../mt-site.js"></script>	<link rel="alternate" type="application/rss+xml" title="RSS" href="../../index.xml.rss">	<link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml"></head>
+
+<body>
+<div id="container">
+	<div id="banner">
+		<ul id="glob">
+	<li><a class="a" href="../../../../../contact/index.html" title="//contact/">contact</a></li>
+</ul>		<h1><a href="../../../../../index.html">infinite sushi</a></h1>
+			</div>
+	<div id="topbar">
+	<a class="on" id="ecto" href="../../../index.html" title="//software/ecto/"><span>ecto</span><br><em>desktop blogging</em></a>
+	<a class="off" id="endo" href="../../../../endo/index.html" title="//software/endo/"><span>endo</span><br><em>total aggregation</em></a>
+	<a class="off" id="duh1001" href="../../../../1001/index.html" title="//software/1001/"><span>1001</span><br><em>flickr accessory</em></a>
+<p class="clear"><!-- --></p></div>
+	<div id="center">
+		<div id="sidebar-one">
+		<ul class="navbar" id="loca">
+	<li class="off"><a href="../../../screenshots/index.html" title="//software/ecto/screenshots/">screenshots</a></li>
+	<li class="off"><a href="../../../download/index.html" title="//software/ecto/download/">download &amp; buy</a></li>
+	<li class="off"><a href="../../../documentation/index.html" title="//software/ecto/documentation/">documentation</a></li>
+	<li class="off"><a href="../../../support/index.html" title="//software/ecto/support/">support</a></li>
+	<li class="on"><a href="../../index.html" title="//software/ecto/news/">news</a></li>
+	<li class="off"><a href="../../../plugins/index.html" title="//software/ecto/plugins/">plugins</a></li>
+	<li class="off"><a href="../../../scripts/index.html" title="//software/ecto/scripts/">scripts</a></li>
+	<li class="off"><a href="../../../developer/index.html" title="//software/ecto/developer/">developer</a></li>
+</ul>
+		</div>
+		<h2>Time-travelling</h2>
+		<div id="content">
+<!-- - - - - - - - - - - end top -->
+
+<div id="blogmenu">
+		«&nbsp;<a href="html_to_wiki_converter.php.html">HTML to wiki converter</a> |
+	
+	<a href="../../index.html">main page</a>
+		| <a href="fun_with_applescript.php.html">Fun with AppleScript</a>&nbsp;»
+	
+</div>
+
+<div class="blogentry">
+	<div class="posted">Mon, 2008-01-14</div>
+	<h4>Time-travelling</h4>
+	<div class="discuss"></div>
+	<div class="cats">
+    <a href="../../tips/index.html" title="tips">tips</a>
+   /   <a href="http://technorati.com/tag/ecto3" rel="tag">ecto3</a> /   <a href="http://technorati.com/tag/timezone" rel="tag">timezone</a>
+	</div>
+	<div class="entrybody">
+		<p>You're a blogger and you're hanging out in Tokyo. You have 3 blogs, each in the US. All your blogs are set to GMT-7, but your Mac is in GMT+8. What is the best way to configure ecto?</p>
+<p>It all depends on what systems powers your blogs. I've <a href="http://blog.kung-foo.tv/archives/001532.html">written before</a> about how desktop blog clients talk to blog systems. It's all about sending text formatted as XML over simple HTTP. There's a specific way to format dates so both blog system and blog client can read it, the <a href="http://en.wikipedia.org/wiki/ISO_8601" style="text-decoration: underline; color: #AD5000;">ISO8601</a> format. For example, 2008-01-12T13:09Z gives date and time (separated by a 'T'). The 'Z' suffix means that the date is in GMT.</p>
+<p>The <a href="http://atomenabled.org/">Atom publishing protocol</a> gets this right. It <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#date.constructs">requires</a> that dates sent and received specify the timezone. There's no need to configure ecto as it knows Atom is a good boy. The problem is with <a href="http://www.xmlrpc.com/">XML-RPC</a>. It does not have that requirement, and each blog system interprets dates differently.</p>
+<p>The cheap way out for a blog client to talk to a blog system using XML-RPC is not to specify a date so that the blog system will use the current date and time. That does not always work. When sending an edit of an already published blog post the date will reset to current. In addition, sometimes the user may want to specify a different date for a post. In those cases, the lack of timezone information in the XML transferred can lead to unwanted time offsets.</p>
+<p>Some blog systems, like MovableType, parse ISO8601 dates with the Z suffix correctly, but still return dates without a timezone specification. In those cases, ecto needs to be told what timezone the blog is in. WordPress, on the other hand, has a custom field for GMT dates, so does not need special handling.</p>
+<p>I ran into trouble with TextPattern, though, and have not been able to work around it elegantly. I looked in the xmlrpc.php file of TextPattern and it not only ignores the timezone suffix of the received date (in this case, 'Z'), it also adjusts the date by the offset of the blog's timezone from GMT. If the server hosting TextPattern is set to a different timezone, that offset is also included. The only work-around is to send dates without a GMT specification and ignore any errors ecto pops up about mismatched dates. It's an issue for TextPattern to fix.</p>
+
+		<a name="more"></a>
+		
+	</div>
+
+		<div class="comments">
+			<h5 id="comments"><a href="http://technorati.com/search/http:/infinite-sushi.com/software/ecto/news/2008/01/timetravelling.php">Reactions on this post</a></h5>
+    </div>
+
+	
+
+</div>
+<!-- - - - - - - - - - - start bottom -->
+		</div><!-- close content -->
+	</div><!-- close center -->
+	<div id="footer">
+		<a href="../../../../../index.html" title="infinite-sushi.com">infinite-sushi.com</a><b>/</b><a href="../../../index.html">software</a><b>/</b><a href="../../../index.html">ecto</a><b>/</b><a href="../../index.html">news</a><b>/</b><a href="../index.html"></a>
+	</div>
+</div>
+<p id="gen">Generated in: <b>0.0013</b> seconds.</p><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1599194-5";
+urchinTracker();
+</script>
+
+
+</body></html>

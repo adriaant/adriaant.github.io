@@ -1,0 +1,129 @@
+body  {
+    font : 12px/15px 'Lucida Grande', 'LucidaGrande', 'Lucida', Verdana, sans-serif;
+    margin : 0px;
+    text-align : justify;
+    color: #000000;
+    background : #eeeeee;
+}
+
+#main {
+    background: #ffffff;
+    padding: 0px;
+    margin : 0px 100px 0px 100px;
+    text-align : justify;
+    color: #000000;
+    border-left: 1px #cccccc inset;
+    border-right: 1px #222222 inset;
+}
+
+#banner  {
+height : 90px;
+margin : 0 0 8px 0;
+padding : 18px 0 0 0;
+background : #ffffff url("http://kung-foo.tv/whatever/whatever.jpg") no-repeat fixed 116px 12px;
+border-bottom: 1px #000000 solid;
+}
+
+#column {
+    padding: 18px;
+    font : 12px/15px   'Lucida Grande', 'LucidaGrande', 'Lucida', Verdana, sans-serif;
+}
+
+A:link,
+A:active {
+    text-decoration: inherit;
+    color: #400080;
+}
+A:visited {
+    text-decoration: inherit;
+    color: #333333;
+}
+A:hover {
+    text-decoration: underline;
+    color: #400080;
+}
+
+h2 {
+    margin: 18px 0px 6px 0px;
+    text-align: left;
+    font : 14px/14px   'Helvetica', Verdana, sans-serif;
+    font-weight: bold;
+    text-shadow: #999 2px 2px 2px;
+    padding-bottom: 4px;
+}
+
+ul, ol {
+    margin: 4px 0px 6px 0px;
+    line-height: 16px;
+    padding-left: 24px;
+}
+
+h1 {
+text-align: center;
+font : 18px/18px   'Helvetica', Verdana, sans-serif;
+font-weight: bold;
+text-shadow: #999 2px 2px 2px;
+}
+
+img {
+	padding: 0px;
+	margin: 0px;
+	border: 1px #cccccc inset;
+}
+
+td {
+    font : 11px/14px 'Helvetica', Verdana, sans-serif;
+    text-align:center;
+	padding: 0px 8px 12px 8px;    
+}
+
+span.system {
+    font : 13px/15px 'lucida grande', 'lucida', sans-serif;
+    font-weight: bold;
+}
+
+form {
+font-size : 11px;
+font-weight : bold;
+}
+
+form table {
+background: #EEEEEE;
+border: 1px #cccccc dotted;
+padding: 10px;
+}
+
+form td {
+border:none;
+font-size:11px;
+}
+
+pre {
+    margin:8px;
+    padding:10px;
+    border: 1px #cccccc dashed;
+    background-color:#eeeeee;
+    font : 9px/12px 'Monaco', 'Courier', monospace;
+    text-align:left;
+}
+
+.warning {
+    width: 67%;
+	padding: 12px;
+	margin: 4px 12px 4px 12px;
+	border: 1px solid #333333;
+	background: #ffff66;
+    font : 11px/13px 'Lucida Grande', 'LucidaGrande', 'Lucida', Verdana, sans-serif;
+    text-align: center;
+}
+.warning h1
+{
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0px 0px 8px 0px;
+}
+.warning p {
+    text-align: justify;
+    margin: 0px;
+    padding: 0px;
+}

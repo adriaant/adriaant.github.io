@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+   <channel>
+      <title>ecto scripts</title>
+      <link>http://infinite-sushi.com/software/ecto/news/</link>
+      <description>All the news about ecto</description>
+      <language>en</language>
+      <copyright>Copyright 2008</copyright>
+      <lastBuildDate>Wed, 10 Sep 2008 08:52:28 +0900</lastBuildDate>
+      <generator>http://www.sixapart.com/movabletype/?v=4.2rc5-en</generator>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs> 
+
+      
+      <item>
+         <title>HTML to wiki converter</title>
+         <description><![CDATA[<p>From <a href="http://blogs.rave.ac.uk/blojsom/blog/mmetcalfe/">Miles Metcalfe</a>, a Perl script that converts HTML to wiki. It uses <a href="http://search.cpan.org/~diberri/HTML-WikiConverter-0.61/lib/HTML/WikiConverter.pm">http://search.cpan.org/~diberri/HTML-WikiConverter-0.61/lib/HTML/WikiConverter.pm</a> with the Confluence dialect installed.</p>
+<pre>
+#!/usr/bin/env perl
+# Confluencer.pl
+use HTML::WikiConverter;
+my $wc = new HTML::WikiConverter( dialect => 'Confluence' );
+
+my $ecto = do { local $/; <> };
+print $wc->html2wiki( $ecto );
+</pre>
+
+<p>Save the code to a file ending in '.pl' and put the file in ~/Library/Application Support/ecto3/scripts/. Restart ecto and you'll find it under the Scripts submenu of the Tools menu. </p>]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/01/html_to_wiki_converter.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/01/html_to_wiki_converter.php</guid>
+         <category></category>
+         <pubDate>Mon, 07 Jan 2008 09:19:12 +0900</pubDate>
+      </item>
+      
+   </channel>
+</rss>

@@ -1,0 +1,451 @@
+/* -- Overall ------------ */
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Lucida Grande', 'Trebuchet MS', verdana, sans-serif;
+	color: #000;
+	background-color: #fff;
+	text-align: center;
+	}
+a 			{ text-decoration: none; }
+a:link 		{ color: #369; }
+a:visited 	{ color: #369; }
+a:hover 	{ color: #69c; }
+a:active 	{ color: #ffc; }
+
+h1, h2, h3, h4,h5, h6,
+div, p {
+	margin: 0;
+	padding: 0;
+	}
+
+/* -- Layout ------------ */
+#container {
+	width: 780px;
+	margin: 0 auto;
+	padding: 0;
+	text-align: left;
+	background: #eff2f3;
+	}
+#banner {
+	margin: 5px 0 0 0;
+	padding: 0 0 5px 0;
+	border-bottom: 1px solid #ccc;
+	background: #fff;
+	}
+#topbar {
+	clear:both;
+	padding: 0;
+	border-right: 1px solid #ccc;
+	}
+#center {
+	clear: both;
+	border-right: 1px solid #ccc;
+	}
+#sidebar-one {
+	float: right;
+	width: 170px;
+	}
+#content {
+	margin: 0 170px 0 0;
+	padding: 20px 20px 20px 4px;
+	border-right: 1px dotted #ccc;
+	background: #fff;
+	font-size: 9pt;
+	}
+#footer {
+	clear: both;
+	margin: 0 0 40px 0;
+	padding: 2px 0 0 0;
+	font-size: 8pt;
+	border-top: 1px solid #ccc;
+	background: #fff;
+	}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 10pt;
+	color: #84A2C0;
+	}
+
+/* -- Navbars ----------- */
+#glob {
+	float:right;
+	margin: 2px 0 0 305px;
+	padding: 0;
+	list-style-type: none;
+	}
+	#glob li {
+		float: left;
+		text-align: right;
+		width: 60px;
+		font-size: 8pt;
+		font-weight: bold;
+		}
+#topbar a {
+	display: block;
+	float:left;
+	margin: 0 0 0 0;
+	padding: 20px 0 20px 0;
+	text-align: left;
+	width: 203px;
+	font-size: 12pt;
+	font-weight: bold;
+	}
+	#topbar a span {
+		padding: 0 0 0 70px;
+	}
+	#topbar a em {
+		font-size: 7pt;
+		font-weight: normal;
+		font-style: normal;
+		padding: 0 0 0 70px;
+	}
+#topbar a#ecto 			{ background: #eff2f3 url('../../../img/all/logos/rolls/ecto_roll.png')  left -70px no-repeat; color:#69c; }
+#topbar a#ecto:hover 	{ background: #E2E8ED url('../../../img/all/logos/rolls/ecto_roll.png')    left 0px no-repeat; color:#369; }
+#topbar a#ecto:active 	{ background: #eff2f3 url('../../../img/all/logos/rolls/ecto_roll.png')    left 0px no-repeat; color:#000; }
+#topbar a.on#ecto 		{ background: #D4DEE6 url('../../../img/all/logos/rolls/ecto_roll.png') left -140px no-repeat; color:#000; }
+
+#topbar a#endo 			{ background: #eff2f3 url('../../../img/all/logos/rolls/endo_roll.png')  left -70px no-repeat; color:#69c; }
+#topbar a#endo:hover 	{ background: #E2E8ED url('../../../img/all/logos/rolls/endo_roll.png')    left 0px no-repeat; color:#369; }
+#topbar a#endo:active 	{ background: #eff2f3 url('../../../img/all/logos/rolls/endo_roll.png')    left 0px no-repeat; color:#000; }
+#topbar a.on#endo 		{ background: #D4DEE6 url('../../../img/all/logos/rolls/endo_roll.png') left -140px no-repeat; color:#000; }
+
+#topbar a#duh1001 		{ background: #eff2f3 url('../../../img/all/logos/rolls/1001_roll.png')  left -70px no-repeat; color:#69c; }
+#topbar a#duh1001:hover { background: #E2E8ED url('../../../img/all/logos/rolls/1001_roll.png')    left 0px no-repeat; color:#369; }
+#topbar a#duh1001:active { background: #eff2f3 url('../../../img/all/logos/rolls/1001_roll.png')   left 0px no-repeat; color:#000; }
+#topbar a.on#duh1001 	{ background: #D4DEE6 url('../../../img/all/logos/rolls/1001_roll.png') left -140px no-repeat; color:#000; }
+
+
+
+.soft-nav-logo {
+	border: none;
+	width: 40px;
+	height: 40px;
+	margin:0 5px 0 0;
+	padding:0;
+	vertical-align: middle;
+	}
+.navbar {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style-type: none;
+	font-size: 9pt;
+	}
+	.navbar li {
+		margin: 0;
+		padding: 0;
+		}
+.navbar#regi {
+	}
+.navbar#loca {
+	}
+	.navbar#loca li {
+		}
+	.navbar#loca li a {
+		display: block;
+		padding: 3px 0 3px 15px;
+		border-top: 1px solid #eff2f3;
+		border-bottom: 1px solid #eff2f3;
+		}
+	.navbar#loca li a:hover {
+		color: #369;
+		background: #E2E8ED;
+		}
+	.navbar#loca li.on a {
+		color: #369;
+		background: #D4DEE6;
+		border-top: 1px solid #B9CAD9;
+		border-bottom: 1px solid #B9CAD9;
+		}
+.navbar#pers {
+	}
+
+/* -- Content ----------- */
+h2 {
+	color: #fff;
+	background: #B9CAD9;
+	margin: 0 170px 0 0;
+	padding: 1px 0 2px 4px;
+	font-size: 12pt;
+	}
+h3 {
+	font-size: 12pt;
+	color: #000;
+	margin: 0 0 5px 0;
+	}
+.entry {
+	margin: 0 0 40px 0;
+	font-size: 10pt;
+	line-height: 150%;
+	color: #666;
+	}
+.entry p {
+	margin: 0 0 20px 0;
+	}
+.downlaodblock {
+	margin: 20px 0;
+	}
+a.icon {
+	display:block;
+	float: left;
+	width: 80px;
+	margin: 0 20px 0 0;
+	text-align: center;
+	font-size: 8pt;
+	}
+	a.icon img {
+		display:block;
+		margin: 0 0 0 20px;
+		text-align: center;
+		border: 0;
+		}
+.description {
+	margin: 0;
+	font-size: 8pt;
+	line-height: 140%;
+	color: #666;
+	}
+.description p {
+	margin: 0 0 0 0;
+	}
+
+/* -- Stuff ------------- */
+.clear {
+	clear: both;
+	margin: 0;
+	padding: 0;
+	width: 0px;
+	height: 0px;
+	}
+p#gen {
+	display: none;
+	font-size: 7pt;
+	color:#ccc;
+	margin: 40px 0;
+	}
+	
+/* -- Screenshots ------- */
+
+#screenshots {
+  text-align: left;
+  width: 540px;
+}
+
+#screenshots img {
+  border: 1px #ccc inset;
+}
+
+#screenshots ul {
+}
+
+#screenshots li {
+  list-style: none;
+  padding: 15px 0 0 0;
+  margin: 15px 0 0 0;
+  border-top: 1px dotted #999;
+}
+
+#screenshots li div.description {
+  float: right;
+  text-align: left;
+  width: 340px;
+}
+
+#placeholder {
+  display: none;
+  background: repeat url("../../../img/background.png");
+  width: 100%;
+  height: 200%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1001;
+}
+
+#placeholderImage {
+  margin:0px;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+}
+
+#placeholderLoad {
+  margin:0px;
+  padding:10px;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  font-family: 'Lucida Grande', verdana, sans-serif;
+  font-size: 1.6em;
+  color: #fff;
+  background: transparent;
+}
+
+#placeholderClose {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+/* -- Weblog stuffs -------- */
+
+.aright {
+  float: right;
+  margin: 0.3em 0 0.3em 0.9em;
+}
+
+.aleft {
+  float: left;
+  margin: 0.3em 0.9em 0.3em 0;
+}
+
+.aright p {
+  margin: 0;
+}
+
+.aleft p {
+  margin: 0;
+}
+
+.blogentry {
+	margin: 0 20px 10px 0;
+	padding: 0 0 10px 0;
+	border-bottom: 1px dotted #999;
+	}
+.blogentry ul {
+        text-align: left;
+        }
+.blogentry h4 {
+	font-size: 12pt;
+	}
+.blogentry .discuss {
+	float: right;
+	font-size: 8pt;
+	}
+.blogentry .posted {
+	font-size: 8pt;
+	color: #999;
+	}
+.blogentry .cats {
+	font-size: 8pt;
+	}
+.blogentry .entrybody {
+	margin: 10px 0 0 0;
+	font-size: 9pt;
+	line-height: 140%;
+	color: #666;
+	}
+.blogentry .entrybody p {
+	text-align: justify;
+	margin: 0 0 10px 0;
+	}
+
+.blogentry .entrybody pre {
+        text-align: left;
+        font-size:0.8em;
+        }
+
+.blogentry .entrybody code {
+        font-size:0.8em;
+        }
+
+img.framed {
+  border:1px #cccccc inset;
+}
+
+.blogprevious {
+	margin: 20px 0 0 0;
+	}
+.blogprevious h5 {
+	font-size: 10pt;
+	}
+#blogmenu {
+	margin: 0 0 10px 0;
+	text-align: center;
+	font-size: 8pt;
+	border: 1px dotted #ccc;
+	}
+.arch-title {
+	font-size: 10pt;
+	text-align: center;
+	margin: 0 0 10px 0;
+	color: #666;
+	text-transform: uppercase;
+	}
+/* -- Comments & Trackbacks Listings --*/
+.comments h5 {
+	font-size: medium;
+	margin: 20px 0 20px 0;
+	}
+.comments dl {
+	margin: 0 40px 0 0;
+	}
+.comments dt {
+	border-bottom: 1px dotted #ccc;
+	}
+.cdate {
+	float: right;
+	font-size: 7pt;
+	}
+.cauth {
+	font-size: 8pt;
+	font-weight: bold;
+	}
+.corder {
+	color: #666;
+	}
+
+.comments dd {
+	margin: 0 0 40px 20px; padding: 0;
+	}
+.comments dd, .comments dd p{
+	font-size: 8pt;
+	}
+
+/* -- Comment Forms ------------------ */
+.commbox {
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	padding: 8px 16px 6px 8px;
+	margin: 0 40px 0 0;
+	}
+	.commbox h5 {
+		font-size: small;
+		margin: 0 0 10px 0;
+		}
+	.commbox p {
+		font-size: 7pt;
+		margin: 10px 0 10px 0;
+		padding: 0 0 10px 0;
+		text-align: left;
+		border-bottom: 1px solid #ccc;
+		}
+	.commbox .remember {
+		float: right;
+		font-size: x-small;
+		}
+	.commbox .row {
+		margin: 0 0 4px 0;
+		padding: 0;
+		font-size: x-small;
+		clear:left;
+		}
+	.commbox .label {
+		float: left;
+		width: 60px;
+		}
+	.commbox .row input {
+		color: #000000;
+		width: 200px;
+		padding: 0;
+		margin: 0;
+		}
+
+textarea {
+	padding: 0;
+	margin: 0;
+	width: 524px;
+	height: 180px;
+}

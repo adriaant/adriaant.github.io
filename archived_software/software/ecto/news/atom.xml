@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>ecto news &amp; tips</title>
+   <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/ecto/news/" />
+   <link rel="self" type="application/atom+xml" href="http://infinite-sushi.com/software/ecto/news/atom.xml" />
+   <id>tag:infinite-sushi.com,2008:/software/ecto/news//10</id>
+   <updated>2008-09-09T22:52:37Z</updated>
+   <subtitle>All the news about ecto</subtitle>
+    <generator uri="http://www.sixapart.com/movabletype/">Movable Type 4.2rc5-en</generator>
+ 
+
+<entry>
+   <title>Passing the torch</title>
+   <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/ecto/news/2008/09/passing_the_torch.php" />
+   <id>tag:infinite-sushi.com,2008:/software/ecto/news//10.1801</id>
+   
+   <published>2008-09-09T22:52:28Z</published>
+   <updated>2008-09-09T22:52:37Z</updated>
+   
+   <summary>Reblogged from infinite-sushi.com: After 6 years of developing, maintaining and improving ecto, I felt it was time to move on. From now on, the new owner of ecto will be illumineX, inc. Instead of one guy working on your favorite...</summary>
+   <author>
+      <name>Adriaan</name>
+      
+   </author>
+   
+        <category term="announcements" />
+   
+   <category term="4" label="ecto3" scheme="http://www.sixapart.com/ns/types#tag" />
+   <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/ecto/news/">
+        <![CDATA[<p>Reblogged from <a href="http://infinite-sushi.com/2008/09/passing-the-torch/">infinite-sushi.com</a>:</p>
+<p>After 6 years of developing, maintaining and improving ecto, I felt it was time to move on. From now on, the new owner of ecto will be <a href="http://illumineX.com">illumineX, inc</a>. Instead of one guy working on your favorite blog client part-time, you'll now have a team of developers working on ecto full time. Before I decided to sell ecto, I had a long correspondence with Gary Longsine, the CEO of illumineX. I wanted to make sure it will continue to be in good hands. I found Gary to be a great guy and he convinced me that his team has many new ideas that will keep ecto growing in functionality and power. In fact, they have already developed a blog client for iPhone based on ecto's code base. I helped out with a few tricky XML-RPC and Atom issues and I was very impressed with how quick the illumineX team picks up things and how fast they work.</p>
+<p>I will remain involved with ecto as a consultant and it's very likely I will develop custom plugins (I already wrote an <a href="http://infinite-sushi.com/software/ecto/news/2008/08/itunes_add-on.php" rel="tag">iTunes plugin</a>). I will always be a fervent user of ecto, so obviously I'd like to see it continue the excellent job it's been doing. You will also still find me in the support forum.<br /></p>
+<p>It does feel odd to let go of something that has been my flagship product and my precious for so long. I put many hours in it and I take much pride in having created ecto. But it remains in capable hands and I now have the opportunity to spend my free time on new things.</p>
+<p>If you have any questions about the transfer of ecto to illumineX, feel free to post them in the comments section of the <a href="http://infinite-sushi.com/2008/09/passing-the-torch/">original post</a>.</p>
+]]>
+        
+   </content>
+</entry>
+
+<entry>
+   <title>The x-blogpost: URL scheme</title>
+   <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/ecto/news/2008/03/the_draft_url_scheme.php" />
+   <id>tag:infinite-sushi.com,2008:/software/ecto/news//10.1792</id>
+   
+   <published>2008-03-31T10:53:56Z</published>
+   <updated>2008-03-31T10:54:04Z</updated>
+   
+   <summary>Starting with ecto version 3b41 you can refer to drafts with an URL scheme, which looks like, for example: x-blogpost://6449f44a102fde848669bdd9eb6b76fa@ff4d5bd026cb03f18a557ba2b651722b The URL has two components separated by an &apos;@&apos; sign. The first one is the MD5 of the draft&apos;s identifier...</summary>
+   <author>
+      <name>Adriaan</name>
+      
+   </author>
+   
+        <category term="tips" />
+   
+   <category term="4" label="ecto3" scheme="http://www.sixapart.com/ns/types#tag" /><category term="87" label="feature" scheme="http://www.sixapart.com/ns/types#tag" /><category term="86" label="scheme" scheme="http://www.sixapart.com/ns/types#tag" /><category term="85" label="url" scheme="http://www.sixapart.com/ns/types#tag" /><category term="89" label="x-blogpost" scheme="http://www.sixapart.com/ns/types#tag" />
+   <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/ecto/news/">
+        <![CDATA[<p>Starting with ecto version 3b41 you can refer to drafts with an URL scheme, which looks like, for example:</p>
+<pre>x-blogpost://6449f44a102fde848669bdd9eb6b76fa@ff4d5bd026cb03f18a557ba2b651722b</pre>
+<p>The URL has two components separated by an '@' sign. The first one is the MD5 of the draft's identifier and the second is the MD5 of the account this draft belongs to. You can use either 'x-blogpost:' or 'x-blogpost://', although the latter works better with Safari.</p>
+<p>To create a URL reference to a draft, the easiest way is to drag and drop an item from the main window's list of drafts into an editing area. This works in TextEdit as well, for example. Clicking a x-blogpost: URL will open the corresponding draft in ecto.</p>
+<p>UPDATE: After discussion with ecto users and Daniel Jalkut from <a href="http://www.red-sweater.com/">Red Sweater</a>, the plan is to use x-blogpost: (instead of my original draft:) to avoid possible collisions and to allow for use by other blog clients as an unofficial standard.</p>
+<p>You can get the URL via AppleScript as well. Example:</p>
+<pre>tell application "ecto"
+  set account_list to accounts whose name is "foo.com"
+  set a to first item of account_list
+  properties of a
+  set blogs_list to blogs of a
+  set b to first item of blogs_list
+  properties of b
+  tell b
+    set entry_list to entries of b
+    set e to first item of entry_list
+    tell e
+      get href
+    end tell
+  end tell
+end tell</pre>]]>
+        
+   </content>
+</entry>
+
+<entry>
+   <title>Separating ways</title>
+   <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/ecto/news/2008/03/separating_ways.php" />
+   <id>tag:infinite-sushi.com,2008:/software/ecto/news//10.1793</id>
+   
+   <published>2008-03-30T04:54:47Z</published>
+   <updated>2008-03-30T04:17:35Z</updated>
+   
+   <summary>Starting today, Alex Hung and I will develop our products separately. We started a partnership a few years ago to release our blog clients under the same banner. At that time, I was a full-time software developer at Kula Co....</summary>
+   <author>
+      <name>Adriaan</name>
+      
+   </author>
+   
+        <category term="announcements" />
+   
+   <category term="46" label="ecto" scheme="http://www.sixapart.com/ns/types#tag" /><category term="48" label="macosx" scheme="http://www.sixapart.com/ns/types#tag" /><category term="52" label="windows" scheme="http://www.sixapart.com/ns/types#tag" />
+   <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/ecto/news/">
+        <![CDATA[<p>Starting today, <a href="http://alexhung.vox.com/">Alex Hung</a> and <a href="http://kung-foo.tv/">I</a> will develop our products separately. We started a partnership a few years ago to release our blog clients under the same banner. At that time, I was a full-time software developer at Kula Co. Ltd. However, I'm now working for Technorati Japan and Alex has a lot more commitments with a new full time job. I also have some changes coming up in my personal life with have less time to devote to administrative matters related to the sales of the Windows version of ecto. We have been developing independently as well, so at this point a partnership does not make much sense anymore.</p>
+<p>Alex Hung will continue developing ecto for Windows under a new name from his own mineblogging.com domain. He has some good changes planned that will benefit Windows users greatly. The new Windows support forum is at <span style="line-height: 14px;"><a href="http://mineblogging.com/support">http://mineblogging.com/support</a>.</span></p>
+<p>ecto for Mac itself will enjoy a 100% dedication.</p>
+<p>Although our software partnership has ended, I gain a good friend in Alex Hung, which is more important.</p>
+]]>
+        
+   </content>
+</entry>
+
+<entry>
+   <title>Looking for localizers</title>
+   <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/ecto/news/2008/02/looking_for_localizers.php" />
+   <id>tag:infinite-sushi.com,2008:/software/ecto/news//10.1784</id>
+   
+   <published>2008-02-29T09:18:26Z</published>
+   <updated>2008-03-30T00:37:49Z</updated>
+   
+   <summary>ecto3 has been in beta for a while, even though it&apos;s been release mode stable for quite a few versions. It&apos;s time to actually take it out of beta, so I&apos;m starting to work on localization.If you&apos;re interested to translate...</summary>
+   <author>
+      <name>Adriaan</name>
+      
+   </author>
+   
+        <category term="announcements" />
+   
+   <category term="4" label="ecto3" scheme="http://www.sixapart.com/ns/types#tag" /><category term="71" label="localization" scheme="http://www.sixapart.com/ns/types#tag" /><category term="70" label="release" scheme="http://www.sixapart.com/ns/types#tag" />
+   <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/ecto/news/">
+        <![CDATA[<p>ecto3 has been in beta for a while, even though it's been release mode stable for quite a few versions. It's time to actually take it out of beta, so I'm starting to work on localization.If you're interested to translate ecto in your language, drop me a line using the <a href="http://infinite-sushi.com/contact/">contact form</a>.</p>
+<p><span style="text-decoration: underline;">Update</span>: Localization in progress for languages:</p>
+<ul>
+  <li>Finnish<br /></li>
+
+  <li>French</li>
+
+  <li>Russian</li>
+
+  <li>Spanish</li>
+</ul>
+<p><span style="text-decoration: underline;">Update</span>: Localization included in latest beta for:</p>
+<ul>
+  <li>Arabic</li>
+
+  <li>Chinese</li>
+
+  <li>Danish</li>
+
+  <li>German</li>
+
+  <li>Japanese</li>
+
+  <li>Korean</li>
+
+  <li>Portuguese</li>
+
+  <li>Taiwanese</li>
+</ul>
+<p>Thanks much all!</p>
+]]>
+        
+   </content>
+</entry>
+
+<entry>
+   <title>Fun with AppleScript</title>
+   <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/ecto/news/2008/01/fun_with_applescript.php" />
+   <id>tag:infinite-sushi.com,2008:/software/ecto/news//10.1782</id>
+   
+   <published>2008-01-19T06:14:31Z</published>
+   <updated>2008-01-19T06:14:38Z</updated>
+   
+   <summary>If you have Assistive Devices turned on in System Preferences, you can do this silly thing in AppleScript: activate application &quot;ecto&quot; tell application &quot;System Events&quot; tell process &quot;ecto&quot; tell menu bar 1 tell menu bar item 2 tell menu 1...</summary>
+   <author>
+      <name>Adriaan</name>
+      
+   </author>
+   
+        <category term="tips" />
+   
+   <category term="68" label="applescript" scheme="http://www.sixapart.com/ns/types#tag" /><category term="4" label="ecto3" scheme="http://www.sixapart.com/ns/types#tag" />
+   <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/ecto/news/">
+        <![CDATA[<p>If you have <a href="http://guides.macrumors.com/System_Preferences#Universal_Access">Assistive Devices</a> turned on in System Preferences, you can do this silly thing in AppleScript:</p>
+<pre>
+activate application "ecto"
+tell application "System Events"
+  tell process "ecto"
+    tell menu bar 1
+      tell menu bar item 2
+        tell menu 1
+          tell menu item 3
+            tell menu 1
+              tell menu item 3
+                click
+              end tell
+            end tell
+          end tell
+        end tell
+      end tell
+    end tell
+  end tell
+end tell
+</pre>]]>
+        
+   </content>
+</entry>
+
+<entry>
+   <title>Time-travelling</title>
+   <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/ecto/news/2008/01/timetravelling.php" />
+   <id>tag:infinite-sushi.com,2008:/software/ecto/news//10.1781</id>
+   
+   <published>2008-01-14T00:10:33Z</published>
+   <updated>2008-01-14T00:10:43Z</updated>
+   
+   <summary>You&apos;re a blogger and you&apos;re hanging out in Tokyo. You have 3 blogs, each in the US. All your blogs are set to GMT-7, but your Mac is in GMT+8. What is the best way to configure ecto? It all...</summary>
+   <author>
+      <name>Adriaan</name>
+      
+   </author>
+   
+        <category term="tips" />
+   
+   <category term="4" label="ecto3" scheme="http://www.sixapart.com/ns/types#tag" /><category term="67" label="timezone" scheme="http://www.sixapart.com/ns/types#tag" />
+   <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/ecto/news/">
+        <![CDATA[<p>You're a blogger and you're hanging out in Tokyo. You have 3 blogs, each in the US. All your blogs are set to GMT-7, but your Mac is in GMT+8. What is the best way to configure ecto?</p>
+<p>It all depends on what systems powers your blogs. I've <a href="http://blog.kung-foo.tv/archives/001532.html">written before</a> about how desktop blog clients talk to blog systems. It's all about sending text formatted as XML over simple HTTP. There's a specific way to format dates so both blog system and blog client can read it, the <a href="http://en.wikipedia.org/wiki/ISO_8601" style="text-decoration: underline; color: #AD5000;">ISO8601</a> format. For example, 2008-01-12T13:09Z gives date and time (separated by a 'T'). The 'Z' suffix means that the date is in GMT.</p>
+<p>The <a href="http://atomenabled.org/">Atom publishing protocol</a> gets this right. It <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#date.constructs">requires</a> that dates sent and received specify the timezone. There's no need to configure ecto as it knows Atom is a good boy. The problem is with <a href="http://www.xmlrpc.com/">XML-RPC</a>. It does not have that requirement, and each blog system interprets dates differently.</p>
+<p>The cheap way out for a blog client to talk to a blog system using XML-RPC is not to specify a date so that the blog system will use the current date and time. That does not always work. When sending an edit of an already published blog post the date will reset to current. In addition, sometimes the user may want to specify a different date for a post. In those cases, the lack of timezone information in the XML transferred can lead to unwanted time offsets.</p>
+<p>Some blog systems, like MovableType, parse ISO8601 dates with the Z suffix correctly, but still return dates without a timezone specification. In those cases, ecto needs to be told what timezone the blog is in. WordPress, on the other hand, has a custom field for GMT dates, so does not need special handling.</p>
+<p>I ran into trouble with TextPattern, though, and have not been able to work around it elegantly. I looked in the xmlrpc.php file of TextPattern and it not only ignores the timezone suffix of the received date (in this case, 'Z'), it also adjusts the date by the offset of the blog's timezone from GMT. If the server hosting TextPattern is set to a different timezone, that offset is also included. The only work-around is to send dates without a GMT specification and ignore any errors ecto pops up about mismatched dates. It's an issue for TextPattern to fix.</p>
+]]>
+        
+   </content>
+</entry>
+
+<entry>
+   <title>ecto3 beta</title>
+   <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/ecto/news/2007/10/ecto3_beta.php" />
+   <id>tag:infinite-sushi.com,2007:/software/ecto/news//10.1769</id>
+   
+   <published>2007-10-09T13:05:45Z</published>
+   <updated>2007-10-09T14:05:51Z</updated>
+   
+   <summary>After two months of testing, I&apos;m satisfied enough to upgrade ecto3&apos;s status from alpha to beta. Thanks to the massive amount of feedback I received via the support forum and by email I was able to smoothen wrinkles, fix bugs,...</summary>
+   <author>
+      <name>Adriaan</name>
+      
+   </author>
+   
+        <category term="announcements" />
+   
+   <category term="50" label="beta" scheme="http://www.sixapart.com/ns/types#tag" /><category term="4" label="ecto3" scheme="http://www.sixapart.com/ns/types#tag" />
+   <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/ecto/news/">
+        <![CDATA[<p>After two months of testing, I'm satisfied enough to upgrade ecto3's status from alpha to beta. Thanks to the massive amount of feedback I received via the <a href="http://infinite-sushi.com/support/">support forum</a> and by email I was able to smoothen wrinkles, fix bugs, and add some more features. The beta stage will be mostly about adding to the feature set, documentation and opening up the plugin interface.</p>
+<p>The first beta version of ecto adds initial AppleScript support and a new set of plugins for notifications.</p>
+<p>The first notification plugin I wrote is to publish a tweet on <a href="http://twitter.com">twitter.com</a> after a post was successfully published. You can download it as <a href="http://infinite-sushi.com/software/ecto/download/Twitter.zip">Twitter.zip</a>. Unarchive and double-click to let the Finder invoke ecto3 to install the plugin. To set it up, go to Settings under the ecto menu and choose the Tools… menu item. Choose the settings pane for Twitter and enter your login credentials and a twitter template (you can leave it blank to use the default template).</p>
+<p>The initial AppleScript library is closely modeled to the architecture of ecto3. If you do not use AppleScript, you can ignore the text that follows.</p>
+<p>Here's a sample script to publish an entry:</p>
+<pre>
+tell application "ecto"
+  set account_list to accounts whose name is "MT4"
+  set a to first item of account_list
+  set blogs_list to blogs of a
+  set b to first item of blogs_list
+  tell b
+    set e to make new entry
+    publish e
+  end tell
+end tell
+</pre>
+<p>If you prefer to have a document popup for the user to edit the entry, use "edit e" instead. If you make changes to the entry via AppleScript while an editor is open, invoke "edit" again.</p>
+<p>To upload an image, you can use, for example:</p>
+<pre>
+tell application "ecto"
+  set b to selected blog
+  set att to make new image with properties {filepath:"/Users/foo/Desktop/foo.png", scales:false, filename:"foo.png", thumbnail:false}
+  properties of att
+  upload att to blog b
+  delay 30
+  set upurl to url of att
+end tell
+</pre>
+<p>Since ecto uploads files asynchronously, you will need to use a delay or your script will proceed to the next statement while the upload is still in progress. You should also check if the web address of the uploaded attachment is valid. If it is not, the upload has not been completed or has failed.</p>
+<p>More to come!</p>
+]]>
+        
+   </content>
+</entry>
+
+<entry>
+   <title>ecto3 alpha</title>
+   <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/ecto/news/2007/08/ecto3_alpha.php" />
+   <id>tag:infinite-sushi.com,2007:/software/ecto/news//10.1768</id>
+   
+   <published>2007-08-13T13:00:16Z</published>
+   <updated>2007-08-13T14:00:24Z</updated>
+   
+   <summary>
+</summary>
+   <author>
+      <name>Adriaan</name>
+      
+   </author>
+   
+        <category term="announcements" />
+   
+   <category term="47" label="alpha" scheme="http://www.sixapart.com/ns/types#tag" /><category term="49" label="download" scheme="http://www.sixapart.com/ns/types#tag" /><category term="46" label="ecto" scheme="http://www.sixapart.com/ns/types#tag" />
+   <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/ecto/news/">
+        <![CDATA[<p>It's here and it's a free upgrade! Let's start with the disclaimers first:</p>
+<ul>
+  <li>This release of ecto3 is an alpha-release. In other words, it has bugs and it has missing features that will be incorporated in later versions, including:
+
+    <ul>
+      <li>AppleScript</li>
+
+      <li>Automator actions</li>
+
+      <li>Notifications</li>
+
+      <li>Smart quotes</li>
+
+      <li>Support for blog systems using the Blogger API</li>
+
+      <li>del.icio.us support</li>
+
+      <li>Growl hasn't been built in yet</li>
+    </ul>
+  </li>
+
+  <li>ecto3 will only work on 10.4 or later.</li>
+
+  <li>ecto3 uses a different data storage structure and formats and does not use any settings from ecto2. This means you can use both ecto2 and ecto3 alongside each other, but it also means that you will have to set up ecto3 from scratch. Once ecto3 is in its final stages, there will be an import function.</li>
+
+  <li>ecto3 is not localized. That will come once it's good enough for a final release.</li>
+
+  <li>ecto3 does not have a built-in Help Book. Writing documentation is as much fun as watching paint dry, so I am delaying it until a final release.</li>
+</ul>
+<p>So what does ecto3 offer now in this early alpha phase?</p>
+<p>First of all, ecto3 is not ecto2. They do not share any code at all. ecto2 derived from ecto1 which was based on Kung-Log which itself originated from an AppleScript utility. At one point it was just code stacked on other code. It worked great, but wasn't very manageable. So I found it necessary to rewrite ecto3 from the ground up. The added benefit is that I was able to fully use 10.4-only goodies.</p>
+<p>One of the biggest changes is that ecto3 has a new rich text editor, one that is based on Apple's very own <a href="http://webkit.org/projects/editing/index.html">Editable WebKit</a>. It allowed me to do the nested list above. It does the job far better than ecto2, but it's not perfect yet. More than 3500 lines of code interface between the GUI editor and WebKit to make it work for blogging. There is also a bunch of JavaScript code helping out where WebKit sputters.</p>
+<p>The architecture of ecto3 is plugin-based. Almost everything that can be powered by a plugin is a plugin. Blog-system support, add-ons such as Amazon, formatters such as Markdown, bookmarkers (forthcoming) and uploaders (forthcoming). The advantage is that anyone can write a plugin to enhance ecto, or to customize a blog-system plugin. I will be releasing sample plugins with documentation for anyone interested in playing with ecto3's plugin support.</p>
+<p>I have not yet written blog system plugins for every blog system imaginable. So far, ecto3 has support for MovableType, WordPress and Blogger. There's a custom version of the MovableType plugin for <a href="http://infinite-sushi.com/software/ecto/plugins/download/Conversant.zip" title="Link to zip archive of Conversant plugin">Conversant</a>, a Vox plugin is on the way, as well as a plugin that will use the old Blogger API for some of the blog systems around that haven't gone with the times. This basically means that people using MovableType, WordPress or Blogger are the best candidates for playing with this alpha version, for now.</p>
+<p>If you want to try out the alpha, here's the download link:</p>
+<p style="text-align: center;"><a href="http://infinite-sushi.com/ecto.zip"><span style="font-family: Lucida Grande; font-size: 18px;">http://infinite-sushi.com/ecto.zip</span></a></p>
+<p style="text-align: left;">Once you have it, just let ecto update itself with each new version. A few directions:</p>
+<p>Once you set up your blog via the Account Manager, hit "Settings…" from the Weblog menu to configure a variety of options, including editor and publishing defaults. A few more general preferences are under the ecto menu. You will need to reinstall the bookmarklet and/or set ecto3 up as blog editor in your favorite newsreader again, since it has a different application ID from ecto2.</p>
+<p>Note the Extra menu, which contains any add-ons. The Scripts menu has gone and any scripts are now handled by the Scripts add-on that you can find under the Extra menu. Scripts go in ~/Library/Application Support/ecto3/scripts/ and are loaded at startup. Supported script languages are Perl (.pl), PHP (.php), Python (.py), Ruby (.rb), AppleScript (.scpt), JavaScript (.js) and shell scripts (.sh). Both AppleScript and JavaScript scripts need a 'main' routine. Here's a simple JavaScript sample:</p>
+<pre>
+  function main(str) {
+      return str + "\n\nHello!";
+  }
+</pre>
+<p>Or some silly Bash:</p>
+<pre>
+  #!/bin/bash
+  read -e INPUT
+  echo "You wrote:"
+  echo $INPUT
+  top -l1 | head -n 1 | awk '{print $1,$2}'
+</pre>
+<p>For troubleshooting and other issues, please report in the <a href="http://infinite-sushi.com/support">support forum</a>. Please keep in mind that this is not my day job, so I may not be able to respond in a timely manner. When you report an issue, please provide as much information as possible: The exact steps required to produce it, any console logs, both from the system and from ecto's own console log (which logs the communication with your blog system). If there are crash logs, bring them along as well. They usually hide out in ~/Library/Logs/CrashReporter/.</p>
+<p>That's it for now. I hope you'll enjoy ecto3 as much as I do.</p>
+<p><span style="font-family: Lucida Grande; font-size: 11px;">You may notice that commenting is turned off, which I selfishly did to encourage you to blog and ping</span> <a href="http://technorati.com/ping"><span style="font-family: Lucida Grande; font-size: 11px;">Technorati</span></a><span style="font-family: Lucida Grande; font-size: 11px;">. I work at</span> <a href="http://technorati.jp"><span style="font-family: Lucida Grande; font-size: 11px;">Technorati</span></a> <span style="font-family: Lucida Grande; font-size: 11px;">and I believe we do a great job tracking conversations in the blogosphere.</span></p>
+]]>
+        
+
+   </content>
+</entry>
+
+<entry>
+   <title>Evolution of code</title>
+   <link rel="alternate" type="text/html" href="http://infinite-sushi.com/software/ecto/news/2007/08/evolution_of_code.php" />
+   <id>tag:infinite-sushi.com,2007:/software/ecto/news//10.1766</id>
+   
+   <published>2007-08-12T07:10:01Z</published>
+   <updated>2008-03-04T12:19:41Z</updated>
+   
+   <summary>I soon realized that I would not be able to improve Kung-Log further if I was going to stick with AppleScript, so in January 2003 I rewrote the application from the ground up using Cocoa.
+
+...My work on endo and 1001 made me realize that I needed to rewrite ecto once more to fully profit from object-oriented aspects of Objective-C and Cocoa.</summary>
+   <author>
+      <name>Adriaan</name>
+      
+   </author>
+   
+        <category term="announcements" />
+   
+   <category term="47" label="alpha" scheme="http://www.sixapart.com/ns/types#tag" /><category term="46" label="ecto" scheme="http://www.sixapart.com/ns/types#tag" /><category term="48" label="macosx" scheme="http://www.sixapart.com/ns/types#tag" />
+   <content type="html" xml:lang="en" xml:base="http://infinite-sushi.com/software/ecto/news/">
+        <![CDATA[<p><img src="http://infinite-sushi.com/software/ecto/news/images/kunglog1.png" width="64" height="64" alt="kung-log logo" style="float:right;" />On August 3rd, 2002, I released a small AppleScript utility to posts and manage entries of a weblog. It was very simple and worked only with weblogs that supported the MovableType publishing API. It even sported a very ugly application icon. It was a surprising hit, though, and based on numerous feedback I was able to make incremental improvements. Kung-Log went from 1.0.0 to 1.6.1 in just five months.</p>
+<p><img src="http://infinite-sushi.com/software/ecto/news/images/kl_ecto_logo.png" width="64" height="64" style="float:left; margin-right:0; padding-right:0;" />I soon realized that I would not be able to improve Kung-Log further if I was going to stick with AppleScript, so in January 2003 I rewrote the application from the ground up using Cocoa. Support for additional weblog systems was added in, and each next version found itself enriched with a new feature. <a href="http://erikveland.com/">Erik Veland</a> designed a new icon as well, which has been in use till now.</p>
+<p>By then, Kung-Log was in wide spread use in the MacOSX community and attracted the attention of ground-breaking internet-focused entrepreneur <a href="http://joi.ito.com">Joichi Ito</a>. I was at that time a post-doc researcher in artificial neural networks, but had become more and more interested in internet-related technologies. Joichi Ito provided the final nudge I needed to expand my foray into the world wide web. I quit academics and worked at the new Six Apart Japan for a few months. Once it was set up, I switched and worked directly for Joi, in his private company, Kula Co. Ltd. On December 24th, 2003, I pushed out a new version of Kung-Log, but renamed as ecto and included many changes. Several months later, it introduced a basic rich text editor. I also formed a partnership with Alex Hung, who has developed a Windows version of ecto.</p>
+<p>While at Kula, I also produced two other software applications, endo and 1001. Writing these apps taught me a tremendous amount of Objective-C, Carbon, and Cocoa, as well as objective-oriented design patterns. At the same time, I was heavily involved with Technorati, spending many hours working on their API, increasing my skills in Perl and PHP and learning a lot about web apps.</p>
+<p>Last year, in August, I joined <a href="http://www.technorati.jp/">Technorati Japan</a> as a full-time employee. Joi also got more involved in Digital Garage, which is the parent company of Technorati Japan. Due to his busy schedule and his many responsibilities, Joi decided to put Kula in the freezer. This effectively meant that ecto once again had become a side-project for me. Even though development on ecto had slowed down, it never stopped. My work on endo and 1001 made me realize that I needed to rewrite ecto once more to fully profit from object-oriented aspects of Objective-C and Cocoa. I also spend countless hours working on a better rich text editor, based on Apple's own <a href="http://webkit.org/projects/editing/index.html">Editable WebKit</a>. Most of this work was in collaboration with iBlog's <a href="http://www.flickr.com/photos/1001/4885756/">Sarat Kongara</a>.</p>
+<p><img src="http://infinite-sushi.com/img/all/logos/icons/ecto_128px.png" width="128" height="128" style="float:left;" />Now, five years since the initial release of Kung-Log, I'm at a point where I think ecto3 is in decent enough shape to be public alpha. Because I felt most of the old ecto website as well as the support forum contained too many outdated pieces of information, I have decided to do a reset. All the relevant software web pages has been moved to infinite-sushi.com, a web domain I once registered because I found it catchy. <a href="http://www.rohdesign.com/weblog/index.html">Mike Rohde</a> designed a new application icon and new toolbar icons for ecto3. I'm sure Mike will blog soon about the design process behind the application icon. Before I release the alpha version of ecto3, I need to write some documentation on it, about what has yet to be done and what some of the many changes are.</p>
+<p>And in response to the numerous messages I have been receiving: Yes, it's a free upgrade.</p>
+]]>
+        
+   </content>
+</entry>
+
+</feed>

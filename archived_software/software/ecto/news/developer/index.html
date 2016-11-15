@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>infinite-sushi.com - Welcome</title>
+	<link rel="stylesheet" type="text/css" href="../../../../_site/skin/style/style.css">
+	<script type="text/javascript" src="../../../../_site/skin/js/global.js"></script>
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="index.xml.rss">	</head>
+
+<body>
+<div id="container">
+	<div id="banner">
+		<ul id="glob">
+	<li><a class="a" href="../../../../contact/index.html" title="//contact/">contact</a></li>
+</ul>		<h1><a href="../../../../index.html">infinite sushi</a></h1>
+			</div>
+	<div id="topbar">
+	<a class="on" id="ecto" href="../../index.html" title="//software/ecto/"><span>ecto</span><br><em>desktop blogging</em></a>
+	<a class="off" id="endo" href="../../../endo/index.html" title="//software/endo/"><span>endo</span><br><em>total aggregation</em></a>
+	<a class="off" id="duh1001" href="../../../1001/index.html" title="//software/1001/"><span>1001</span><br><em>flickr accessory</em></a>
+<p class="clear"><!-- --></p></div>
+	<div id="center">
+		<div id="sidebar-one">
+		<ul class="navbar" id="loca">
+	<li class="off"><a href="../../screenshots/index.html" title="//software/ecto/screenshots/">screenshots</a></li>
+	<li class="off"><a href="../../download/index.html" title="//software/ecto/download/">download &amp; buy</a></li>
+	<li class="off"><a href="../../documentation/index.html" title="//software/ecto/documentation/">documentation</a></li>
+	<li class="off"><a href="../../support/index.html" title="//software/ecto/support/">support</a></li>
+	<li class="on"><a href="../index.html" title="//software/ecto/news/">news</a></li>
+	<li class="off"><a href="../../plugins/index.html" title="//software/ecto/plugins/">plugins</a></li>
+	<li class="off"><a href="../../scripts/index.html" title="//software/ecto/scripts/">scripts</a></li>
+	<li class="off"><a href="../../developer/index.html" title="//software/ecto/developer/">developer</a></li>
+</ul>
+		</div>
+		<h2>Welcome</h2>
+		<div id="content">
+<!-- - - - - - - - - - - end top -->
+
+
+<div class="blogentry">
+	<a name="001799"></a>
+	<div class="posted">Fri, 2008-08-22</div>
+	<h4><a href="../2008/08/writing_add-ons_for_ecto.php.html" title="Writing add-ons for ecto">Writing add-ons for ecto</a></h4>
+	<div class="discuss"></div>
+<div class="cats">&nbsp;</div>
+	<div class="entrybody">
+		<p>ecto has several built-in add-ons that manipulate text in the active editing area, such as for example, Amazon Helper, Flickr Helper, and Scripts. You can write your own add-on. To explain how to, I figure it's best to use a sample add-on. After all, what's the better way to learn how to write an add-on for ecto3 than to see a working example? I uploaded the source code of the iTunes add-on as a <a href="../../download/itunes_addon_code.zip">53.8 KB zip file</a>. The iTunes add-on grabs info of the currently playing song in iTunes and returns it as a formatted string to ecto, which then inserts it into the active editing area.
+</p><p>The zip archive contains an <a href="http://developer.apple.com/tools/xcode/">XCode</a> project with everything necessary to have an add-on working. You can work right on top of this file, but you'll have to rename source code files and class names to prevent conflicts (see <a href="../2007/12/writing_your_own_uploader.php.html">this blog entry</a> for directions).</p>
+<p>The meat of the code is one call the add-on gets from ecto:</p>
+<p><code>- (id)addonRequested:(id)delegate selection:(NSString*)selectedText subaction:(NSString*)subaction
+</code></p>
+<p>
+ecto calls the addon with selected text or full text from active text area (depending on a setting you define in the add-on) and a delegate. Once done, you'd call the delegate using the selector 'addonFinished' and a string (return nil to cancel the action). All text should be plain text (in HTML or any of the supported formats). If you require feedback from the user, return an object that instantiates a nib and responds to @selector(view) to return a view for display. If you return an object, the delegate will keep it around for as long the delegate is alive, and send any following addonRequested calls directly to the object.  There is no need to manage objects you return. The delegate will release when done. Just make sure not to autorelease it.
+</p><p>
+The iTunes add-on doesn't use a nib when called by the user (Amazon Helper and Flickr Helper do). It just returns text, so it's the easiest type of add-on. It also offers a preferences view so the user can define settings specific to the add-on (via ecto -&gt; Settings -&gt; Tools &amp; Add-ons).
+</p><p>
+If you're familiar with Objective-C and Cocoa, the project should be decent study material. If you have questions, pose them in the <a href="http://infinite-sushi.com/support/viewforum.php?f=28">Developer Forum</a> or <a href="../../../../contact/index.html">contact me</a> directly. I'd be more than happy to provide more info, advice or an example add-on that uses a nib.</p>
+
+		
+	</div>
+</div>
+
+<div class="blogentry">
+	<a name="001795"></a>
+	<div class="posted">Thu, 2008-07-03</div>
+	<h4><a href="../2008/07/writing_your_own_formatter.php.html" title="Writing your own formatter">Writing your own formatter</a></h4>
+	<div class="discuss"></div>
+<div class="cats">&nbsp;</div>
+	<div class="entrybody">
+		<p>Some blog systems (Drupal, MovableType, TypePad) provide a blog client (such as <a href="../../../../ecto.zip">ecto</a>) with a list of available text formats. This allows the user to write a post in ecto using, for example Markdown, and have ecto inform the blog system on publish that it should interpret the text as Markdown. </p>
+<p>Markdown and Textile formatters are built into ecto, so that when you preview your post the text is correctly converted to HTML. You can, however, create custom formatters for any formats that your blog system uses but isn't handled by ecto (e.g. MathML). </p>
+<p>To get you going, I have made the <a href="../../download/Markdown.zip">source code of the Markdown formatter</a> available. </p>
+<p>Once you've downloaded and unpacked the sample, rename the project. Ideally, you'd use the name of the format provided by your blog system. Let's assume your formatter will be called MathML. In the Finder, rename "Markdown.xcodeproj" to "MathML.xcodeproj". Double-click the file to open it. Make sure to use the Release build configuration. In the Groups &amp; Files list, click on "Markdown" under the "Targets" section. Select File → Get Info. Under "Build", find the values for "Product Name" and "Prefix Header" and rename them. Under "Properties", assign a unique identifier, e.g. com.thirdparty.ecto_mathml and change the principal class to "MathML". Close the Get Info window.</p>
+<p>Back in Groups &amp; Files, rename any files containing "Markdown" so that they contain "MathML". You will then have to rename the class names inside those files as well. In other words, class Markdown becomes MathML, and so forth.</p>
+<p>Do NOT rename "FormatterInterface.h" and do NOT rename the "ECTOFormatterProtocol" protocol name.</p>
+<p>In Markdown.m, you will also need to change the code for <code>"-(NSString*)formatterKey</code>", "<code>-(NSString*)formatterDescription</code>" and "<code>-(BOOL)willHandleFormat</code>".</p>
+<p>The formatter plug-in has one entry point: "<code>- (NSString*)formatText:(NSString*)source</code>". That's where the conversion to HTML happens. For Markdown, I used Perl scripts, which are accessed via a pipe. See the code for details.</p>
+<p>Some blog systems, such as WordPress, do not provide a list of formatters. When you preview posts in ecto written for these blog systems, ecto uses a special built-in formatter, Generic.formatter. It analyzes the text and will format accordingly (it recognizes Markdown and Textile). You could write your own Generic.formatter and install it into ~/Library/Application Support/ecto3/formatters/ and it would override the built-in version. </p> 
+<p>If you have any questions about writing a formatter, please visit the <a href="http://infinite-sushi.com/support/viewforum.php?f=28">Developer support forum</a>.</p>
+
+		
+	</div>
+</div>
+
+<div class="blogentry">
+	<a name="001786"></a>
+	<div class="posted">Sun, 2008-01-27</div>
+	<h4><a href="../2008/01/twitter_addon_source_code.php.html" title="Twitter add-on source code">Twitter add-on source code</a></h4>
+	<div class="discuss"></div>
+<div class="cats">&nbsp;</div>
+	<div class="entrybody">
+		<p>What better way to learn how to write a notifier add-on for ecto3 than to see a working example? I uploaded the source code of my <a href="http://twitter.com">twitter</a> add-on as a <a href="../../download/twitter_notifier_code.zip">104 KB zip file</a>. The archive contains an <a href="http://developer.apple.com/tools/xcode/">XCode 2</a> project with everything necessary to have a notifier add-on working. You can work right on top of this file, but you'll have to rename source code files and class names to prevent conflicts (see <a href="../2007/12/writing_your_own_uploader.php.html">this blog entry</a> for directions).</p>
+<p>The meat of the code is one call the add-on gets from ecto:</p>
+<p><code>- (void)processNotification:(int)type data:(id)data</code><br>
+<br>
+The various types and the data you can expect is documented right in the code. If you're familiar with Objective-C and Cocoa, the project should be easy study material. If you have questions, pose them in the <a href="http://infinite-sushi.com/support/viewforum.php?f=28">Developer Forum</a> or <a href="../../../../contact/index.html">contact me</a> directly. I'd be more than happy to provide pointers.</p>
+<p>Smart observers will note that the add-on header file also applies to ecto3 add-ons that let you manipulate or insert text (the Amazon and Flickr Helper add-ons are using this). I'll release a sample for this type of add-on soon.</p>
+
+		
+	</div>
+</div>
+
+<div class="blogentry">
+	<a name="001771"></a>
+	<div class="posted">Tue, 2007-12-04</div>
+	<h4><a href="../2007/12/writing_your_own_uploader.php.html" title="Writing your own uploader">Writing your own uploader</a></h4>
+	<div class="discuss"></div>
+<div class="cats">&nbsp;</div>
+	<div class="entrybody">
+		<p>One of the reasons I rewrote ecto from the ground up into what is now available as <a href="../../../../ecto.zip">ecto3 beta</a> is to allow for third-party add-ons. I wanted the application to become more modular and have a plug-in architecture. The first type of add-on that I am going to explain is the uploader. Some blog-systems allow users to upload files using either the appropriate XML-RPC or Atom call, but Blogger and a slew of others do not support that. For those alternative means should be available. ecto3 already has a built-in add-on that lets you upload images to Flickr. In this blog entry I will provide sample uploader code and directions on how to write your own. If you have the Cocoa skills, you could write an FTP or Picasa uploader.</p>
+<p>The first step would be to download and unpack the <a href="../../download/SampleUploader.zip">sample uploader</a>. It actually does not upload, but gives you a basic framework to work with. Once you've unpacked the sample, it's a good idea to rename the project. Let's assume your uploader will be called MyUploader. In the Finder, rename "SampleUploader.xcodeproj" to "MyUploader.xcodeproj". Double-click the file to open it. In the Groups &amp; Files list, click on "SampleUploader" under the "Targets" section. Select File → Get Info. Under "Build", find the values for "Product Name" and "Prefix Header" and rename them. Under "Properties", assign a unique identifier, e.g. com.thirdparty.ecto_myuploader and change the principal class to "MyUploader". Close the Get Info window.</p>
+<p>Back in Groups &amp; Files, rename any files containing "SampleUploader" so that they contain "MyUploader". Rename the "SSUUploadWorker" files to something different as well. You will then have to rename the class names inside those files as well. In other words, class SampleUploader becomes MyUploader, and so forth.</p>
+<p>Do NOT rename "UploaderInterface.h" and do NOT rename the "ECTOUploaderProtocol" protocol name.</p>
+<p>In SampleUploader.m, you will also need to change the return value for <code>"-(NSString*)uploaderKey</code>" and "<code>-(NSString*)uploaderDescription</code>".</p>
+<p>The uploader plug-in has two entry points. The first one is a method called when the user is accessing settings for a given attachment that uses the uploader: "-<code>(id)uploaderRequested:(NSMutableDictionary*)settings</code>". You can use this to allow users to specify a variety of general preferences (which you would store in NSUserDefaults) or attachment-specific settings, which are stored in the provided dictionary. See SampleUploaderSettings.m for an example.</p>
+<p>The actual upload happens with a call to <code>-(void)uploadData:(NSDictionary*)data delegate:(id)del errorSelector:(SEL)err endSelector:(SEL)end statusSelector:(SEL)stat</code>. All the data you need for upload is provided in the "data" dictionary, which also includes any of the settings stored in the previously discussed method. The SampleUploader.m file lists the various available keys and how you can use them. It allocates an SUUploadWorker class, which does the actual upload. Once this object has done its job, a delegate call is made back to ecto to inform of the result. See <code>-(void)upload</code> for an example of what you need to return to ecto.</p>
+<p>The most simple adaptation would only require changing <code>-(void)upload</code> in SUUploadWorker.m and writing code for the actual upload in there.</p>
+<p>If you have any questions about writing an uploader, please visit the Developer support forum.</p>
+
+		
+	</div>
+</div>
+
+
+<!-- - - - - - - - - - - start bottom -->
+		</div><!-- close content -->
+	</div><!-- close center -->
+	<div id="footer">
+		<a href="../../../../index.html" title="infinite-sushi.com">infinite-sushi.com</a><b>/</b><a href="../../index.html">software</a><b>/</b><a href="../../index.html">ecto</a><b>/</b><a href="../index.html">news</a><b>/</b><a href="index.html"></a>
+	</div>
+</div>
+<p id="gen">Generated in: <b>0.00165</b> seconds.</p><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1599194-5";
+urchinTracker();
+</script>
+
+
+</body></html>

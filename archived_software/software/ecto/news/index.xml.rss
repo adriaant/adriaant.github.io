@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+   <channel>
+      <title>ecto</title>
+      <link>http://infinite-sushi.com/software/ecto/news/</link>
+      <description>All the news about ecto</description>
+      <language>en</language>
+      <copyright>Copyright 2008</copyright>
+      <lastBuildDate>Wed, 10 Sep 2008 08:52:28 +0900</lastBuildDate>
+      <generator>http://www.sixapart.com/movabletype/</generator>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs> 
+
+      
+      <item>
+         <title>Passing the torch</title>
+         <description><![CDATA[<p>Reblogged from <a href="http://infinite-sushi.com/2008/09/passing-the-torch/">infinite-sushi.com</a>:</p>
+<p>After 6 years of developing, maintaining and improving ecto, I felt it was time to move on. From now on, the new owner of ecto will be <a href="http://illumineX.com">illumineX, inc</a>. Instead of one guy working on your favorite blog client part-time, you'll now have a team of developers working on ecto full time. Before I decided to sell ecto, I had a long correspondence with Gary Longsine, the CEO of illumineX. I wanted to make sure it will continue to be in good hands. I found Gary to be a great guy and he convinced me that his team has many new ideas that will keep ecto growing in functionality and power. In fact, they have already developed a blog client for iPhone based on ecto's code base. I helped out with a few tricky XML-RPC and Atom issues and I was very impressed with how quick the illumineX team picks up things and how fast they work.</p>
+<p>I will remain involved with ecto as a consultant and it's very likely I will develop custom plugins (I already wrote an <a href="http://infinite-sushi.com/software/ecto/news/2008/08/itunes_add-on.php" rel="tag">iTunes plugin</a>). I will always be a fervent user of ecto, so obviously I'd like to see it continue the excellent job it's been doing. You will also still find me in the support forum.<br /></p>
+<p>It does feel odd to let go of something that has been my flagship product and my precious for so long. I put many hours in it and I take much pride in having created ecto. But it remains in capable hands and I now have the opportunity to spend my free time on new things.</p>
+<p>If you have any questions about the transfer of ecto to illumineX, feel free to post them in the comments section of the <a href="http://infinite-sushi.com/2008/09/passing-the-torch/">original post</a>.</p>
+]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/09/passing_the_torch.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/09/passing_the_torch.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">announcements</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+         <pubDate>Wed, 10 Sep 2008 08:52:28 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>Atom 0.3 blog system</title>
+         <description><![CDATA[<p>Since a few blog systems out there (LOVELOG, Livedoor Blog, etc) haven't upgraded to Atom 1.0, I have made this plugin available. Download <a href="http://infinite-sushi.com/software/ecto/download/Atom03.zip">Atom03.zip</a> (19Kb). Double-click to install or manually copy to the <code>~/Library/Application Support/ecto3/blogsystems/</code> directory. Once installed, select "Account Manager" from the Window menu and configure your blog to use the installed add-on.</p>
+<p>ecto3でLivedoorの設定の指示は<a href="http://naomemo.cocolog-nifty.com/macdecocolog/2008/09/ecto30b54.html">こちら</a>です。</p>
+]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/09/atom_03_blog_system.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/09/atom_03_blog_system.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">plugins</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">addon</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">download</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+         <pubDate>Fri, 05 Sep 2008 11:28:38 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>Writing add-ons for ecto</title>
+         <description><![CDATA[<p>ecto has several built-in add-ons that manipulate text in the active editing area, such as for example, Amazon Helper, Flickr Helper, and Scripts. You can write your own add-on. To explain how to, I figure it's best to use a sample add-on. After all, what's the better way to learn how to write an add-on for ecto3 than to see a working example? I uploaded the source code of the iTunes add-on as a <a href="http://infinite-sushi.com/software/ecto/download/itunes_addon_code.zip">53.8 KB zip file</a>. The iTunes add-on grabs info of the currently playing song in iTunes and returns it as a formatted string to ecto, which then inserts it into the active editing area.
+</p><p>The zip archive contains an <a href="http://developer.apple.com/tools/xcode/">XCode</a> project with everything necessary to have an add-on working. You can work right on top of this file, but you'll have to rename source code files and class names to prevent conflicts (see <a href="http://infinite-sushi.com/software/ecto/news/2007/12/writing_your_own_uploader.php">this blog entry</a> for directions).</p>
+<p>The meat of the code is one call the add-on gets from ecto:</p>
+<p><code>- (id)addonRequested:(id)delegate selection:(NSString*)selectedText subaction:(NSString*)subaction
+</code></p>
+<p>
+ecto calls the addon with selected text or full text from active text area (depending on a setting you define in the add-on) and a delegate. Once done, you'd call the delegate using the selector 'addonFinished' and a string (return nil to cancel the action). All text should be plain text (in HTML or any of the supported formats). If you require feedback from the user, return an object that instantiates a nib and responds to @selector(view) to return a view for display. If you return an object, the delegate will keep it around for as long the delegate is alive, and send any following addonRequested calls directly to the object.  There is no need to manage objects you return. The delegate will release when done. Just make sure not to autorelease it.
+</p><p>
+The iTunes add-on doesn't use a nib when called by the user (Amazon Helper and Flickr Helper do). It just returns text, so it's the easiest type of add-on. It also offers a preferences view so the user can define settings specific to the add-on (via ecto -&gt; Settings -&gt; Tools &amp; Add-ons).
+</p><p>
+If you're familiar with Objective-C and Cocoa, the project should be decent study material. If you have questions, pose them in the <a href="http://infinite-sushi.com/support/viewforum.php?f=28">Developer Forum</a> or <a href="http://infinite-sushi.com/contact/">contact me</a> directly. I'd be more than happy to provide more info, advice or an example add-on that uses a nib.</p>
+]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/08/writing_add-ons_for_ecto.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/08/writing_add-ons_for_ecto.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">developer</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">addon</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">code</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">itunes</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">sample</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">source</category>
+        
+         <pubDate>Fri, 22 Aug 2008 00:31:24 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>iTunes add-on</title>
+         <description><![CDATA[<p>A plugin that will insert the currently playing track in iTunes into the text you're editing. Download <a href="http://infinite-sushi.com/software/ecto/download/itunes.zip">itunes.zip</a> (26.1Kb). Double-click to install or manually copy to the <code>~/Library/Application Support/ecto3/addons/</code> directory.</p>
+<p><strong>Usage</strong><br />
+Once the addon is installed, launch ecto. You can invoke the add-on from the Tools menu or the draft window's toolbar. To change settings, go to <span style="font: bold 13px 'Lucida Grande'">Settings</span> under the <span style="font: bold 13px 'Lucida Grande';">ecto</span> menu and choose the <span style="font: bold 13px 'Lucida Grande';">Tools &amp; Addons…</span> menu item. Select the "iTunes" item from the popup and configure to your liking.</p>
+<div class="itunes_track">Listened to:<br /><span class="title">Stand In Silence</span> from the album "<span class="album">So Divided</span>" by <span class="artist"><a href="http://www.google.com/search?q=%22And You Will Know Us By The Trail Of Dead%22">And You Will Know Us By The Trail Of Dead</a></span></div>]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/08/itunes_add-on.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/08/itunes_add-on.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">plugins</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">addon</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">download</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">itunes</category>
+        
+         <pubDate>Fri, 22 Aug 2008 00:26:06 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>Writing your own formatter</title>
+         <description><![CDATA[<p>Some blog systems (Drupal, MovableType, TypePad) provide a blog client (such as <a href="http://infinite-sushi.com/ecto.zip">ecto</a>) with a list of available text formats. This allows the user to write a post in ecto using, for example Markdown, and have ecto inform the blog system on publish that it should interpret the text as Markdown. </p>
+<p>Markdown and Textile formatters are built into ecto, so that when you preview your post the text is correctly converted to HTML. You can, however, create custom formatters for any formats that your blog system uses but isn't handled by ecto (e.g. MathML). </p>
+<p>To get you going, I have made the <a href="http://infinite-sushi.com/software/ecto/download/Markdown.zip">source code of the Markdown formatter</a> available. </p>
+<p>Once you've downloaded and unpacked the sample, rename the project. Ideally, you'd use the name of the format provided by your blog system. Let's assume your formatter will be called MathML. In the Finder, rename "Markdown.xcodeproj" to "MathML.xcodeproj". Double-click the file to open it. Make sure to use the Release build configuration. In the Groups &amp; Files list, click on "Markdown" under the "Targets" section. Select File → Get Info. Under "Build", find the values for "Product Name" and "Prefix Header" and rename them. Under "Properties", assign a unique identifier, e.g. com.thirdparty.ecto_mathml and change the principal class to "MathML". Close the Get Info window.</p>
+<p>Back in Groups &amp; Files, rename any files containing "Markdown" so that they contain "MathML". You will then have to rename the class names inside those files as well. In other words, class Markdown becomes MathML, and so forth.</p>
+<p>Do NOT rename "FormatterInterface.h" and do NOT rename the "ECTOFormatterProtocol" protocol name.</p>
+<p>In Markdown.m, you will also need to change the code for <code>"-(NSString*)formatterKey</code>", "<code>-(NSString*)formatterDescription</code>" and "<code>-(BOOL)willHandleFormat</code>".</p>
+<p>The formatter plug-in has one entry point: "<code>- (NSString*)formatText:(NSString*)source</code>". That's where the conversion to HTML happens. For Markdown, I used Perl scripts, which are accessed via a pipe. See the code for details.</p>
+<p>Some blog systems, such as WordPress, do not provide a list of formatters. When you preview posts in ecto written for these blog systems, ecto uses a special built-in formatter, Generic.formatter. It analyzes the text and will format accordingly (it recognizes Markdown and Textile). You could write your own Generic.formatter and install it into ~/Library/Application Support/ecto3/formatters/ and it would override the built-in version. </p> 
+<p>If you have any questions about writing a formatter, please visit the <a href="http://infinite-sushi.com/support/viewforum.php?f=28">Developer support forum</a>.</p>
+]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/07/writing_your_own_formatter.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/07/writing_your_own_formatter.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">developer</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">addon</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">formatter</category>
+        
+         <pubDate>Thu, 03 Jul 2008 11:28:45 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>The x-blogpost: URL scheme</title>
+         <description><![CDATA[<p>Starting with ecto version 3b41 you can refer to drafts with an URL scheme, which looks like, for example:</p>
+<pre>x-blogpost://6449f44a102fde848669bdd9eb6b76fa@ff4d5bd026cb03f18a557ba2b651722b</pre>
+<p>The URL has two components separated by an '@' sign. The first one is the MD5 of the draft's identifier and the second is the MD5 of the account this draft belongs to. You can use either 'x-blogpost:' or 'x-blogpost://', although the latter works better with Safari.</p>
+<p>To create a URL reference to a draft, the easiest way is to drag and drop an item from the main window's list of drafts into an editing area. This works in TextEdit as well, for example. Clicking a x-blogpost: URL will open the corresponding draft in ecto.</p>
+<p>UPDATE: After discussion with ecto users and Daniel Jalkut from <a href="http://www.red-sweater.com/">Red Sweater</a>, the plan is to use x-blogpost: (instead of my original draft:) to avoid possible collisions and to allow for use by other blog clients as an unofficial standard.</p>
+<p>You can get the URL via AppleScript as well. Example:</p>
+<pre>tell application "ecto"
+  set account_list to accounts whose name is "foo.com"
+  set a to first item of account_list
+  properties of a
+  set blogs_list to blogs of a
+  set b to first item of blogs_list
+  properties of b
+  tell b
+    set entry_list to entries of b
+    set e to first item of entry_list
+    tell e
+      get href
+    end tell
+  end tell
+end tell</pre>]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/03/the_draft_url_scheme.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/03/the_draft_url_scheme.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">tips</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">feature</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">scheme</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">url</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">x-blogpost</category>
+        
+         <pubDate>Mon, 31 Mar 2008 20:53:56 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>Separating ways</title>
+         <description><![CDATA[<p>Starting today, <a href="http://alexhung.vox.com/">Alex Hung</a> and <a href="http://kung-foo.tv/">I</a> will develop our products separately. We started a partnership a few years ago to release our blog clients under the same banner. At that time, I was a full-time software developer at Kula Co. Ltd. However, I'm now working for Technorati Japan and Alex has a lot more commitments with a new full time job. I also have some changes coming up in my personal life with have less time to devote to administrative matters related to the sales of the Windows version of ecto. We have been developing independently as well, so at this point a partnership does not make much sense anymore.</p>
+<p>Alex Hung will continue developing ecto for Windows under a new name from his own mineblogging.com domain. He has some good changes planned that will benefit Windows users greatly. The new Windows support forum is at <span style="line-height: 14px;"><a href="http://mineblogging.com/support">http://mineblogging.com/support</a>.</span></p>
+<p>ecto for Mac itself will enjoy a 100% dedication.</p>
+<p>Although our software partnership has ended, I gain a good friend in Alex Hung, which is more important.</p>
+]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/03/separating_ways.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/03/separating_ways.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">announcements</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">macosx</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">windows</category>
+        
+         <pubDate>Sun, 30 Mar 2008 14:54:47 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>BlogEngine.NET blog system</title>
+         <description><![CDATA[<p>A plugin specifically configured for the <a href="http://www.codeplex.com/blogengine">BlogEngine.NET</a> blog system. The add-on has support for pages. Download <a href="http://infinite-sushi.com/software/ecto/download/BlogEngineNET.zip">BlogEngineNET.zip</a> (22Kb). Double-click to install or manually copy to the <code>~/Library/Application Support/ecto3/blogsystems/</code> directory. Once installed, select "Account Manager" from the Window menu and configure your blog to use the installed add-on.</p>]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/03/blogenginenet_blog_system.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/03/blogenginenet_blog_system.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">plugins</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">addon</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">download</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+         <pubDate>Tue, 04 Mar 2008 21:16:16 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>Looking for localizers</title>
+         <description><![CDATA[<p>ecto3 has been in beta for a while, even though it's been release mode stable for quite a few versions. It's time to actually take it out of beta, so I'm starting to work on localization.If you're interested to translate ecto in your language, drop me a line using the <a href="http://infinite-sushi.com/contact/">contact form</a>.</p>
+<p><span style="text-decoration: underline;">Update</span>: Localization in progress for languages:</p>
+<ul>
+  <li>Finnish<br /></li>
+
+  <li>French</li>
+
+  <li>Russian</li>
+
+  <li>Spanish</li>
+</ul>
+<p><span style="text-decoration: underline;">Update</span>: Localization included in latest beta for:</p>
+<ul>
+  <li>Arabic</li>
+
+  <li>Chinese</li>
+
+  <li>Danish</li>
+
+  <li>German</li>
+
+  <li>Japanese</li>
+
+  <li>Korean</li>
+
+  <li>Portuguese</li>
+
+  <li>Taiwanese</li>
+</ul>
+<p>Thanks much all!</p>
+]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/02/looking_for_localizers.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/02/looking_for_localizers.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">announcements</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">localization</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">release</category>
+        
+         <pubDate>Fri, 29 Feb 2008 18:18:26 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>Twitter add-on source code</title>
+         <description><![CDATA[<p>What better way to learn how to write a notifier add-on for ecto3 than to see a working example? I uploaded the source code of my <a href="http://twitter.com">twitter</a> add-on as a <a href="http://infinite-sushi.com/software/ecto/download/twitter_notifier_code.zip">104 KB zip file</a>. The archive contains an <a href="http://developer.apple.com/tools/xcode/">XCode 2</a> project with everything necessary to have a notifier add-on working. You can work right on top of this file, but you'll have to rename source code files and class names to prevent conflicts (see <a href="http://infinite-sushi.com/software/ecto/news/2007/12/writing_your_own_uploader.php">this blog entry</a> for directions).</p>
+<p>The meat of the code is one call the add-on gets from ecto:</p>
+<p><code>- (void)processNotification:(int)type data:(id)data</code><br />
+<br />
+The various types and the data you can expect is documented right in the code. If you're familiar with Objective-C and Cocoa, the project should be easy study material. If you have questions, pose them in the <a href="http://infinite-sushi.com/support/viewforum.php?f=28">Developer Forum</a> or <a href="http://infinite-sushi.com/contact/">contact me</a> directly. I'd be more than happy to provide pointers.</p>
+<p>Smart observers will note that the add-on header file also applies to ecto3 add-ons that let you manipulate or insert text (the Amazon and Flickr Helper add-ons are using this). I'll release a sample for this type of add-on soon.</p>
+]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/01/twitter_addon_source_code.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/01/twitter_addon_source_code.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">developer</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">addon</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">code</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">sample</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">source</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">twitter</category>
+        
+         <pubDate>Sun, 27 Jan 2008 20:32:49 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>Flickr Helper</title>
+         <description><![CDATA[<p><img src="http://infinite-sushi.com/software/ecto/news/images/fd_toolbar_icon.png" width="81" height="62" alt="fd_toolbar_icon.png" style="float:left; margin-right:12px; border:1px #000000 solid;"/> Flickr Helper is a new add-on that is included in ecto by default (ecto3b23 and up). Its purpose is to easily search for and browse pictures from Flickr. Once you've found one, you can then insert a smaller version of the picture it in your blog post complete with a link to the original page on Flickr. To use it, just open an existing or new draft, place the insertion point where you want the Flickr picture to appear and click on "Flickr Helper" in the toolbar (or choose the commend from the Tools menu in the menu bar). A sheet slides down with 5 different search options: Your pictures, your contacts, your sets, your groups, or tags.</p>
+<p style="text-align: center;"><img src="http://infinite-sushi.com/software/ecto/news/images/fd_main.png" width="501" height="440" alt="fd_main.png" style="border:1px #000000 solid;"/></p>
+<p>You can search for tags anytime, but if you want to search in the other options, you will need to authorize first. You can do that via the Tools &amp; Add-ons settings. I recommended logging into your Flickr account via the browser first before authorizing the Flickr Helper add-on.</p>
+<p style="text-align: center;"><img src="http://infinite-sushi.com/software/ecto/news/images/fd_prefs.png" width="549" height="272" alt="fd_prefs.png" style="border:1px #000000 inset;"/></p>
+<p>Other than that, using Flickr Helper is pretty straight-forward. If you have questions, feel free to ask in the <a href="http://infinite-sushi.com/support/">Support Forum</a>.</p>
+<p>The image browser in the add-on is an implementation of a simplified version of <a href="http://blakeseely.com/downloads.html">MUPhotoView</a>.</p>]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/01/flickr_helper.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/01/flickr_helper.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">plugins</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">addon</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">flickr</category>
+        
+         <pubDate>Sun, 20 Jan 2008 20:31:11 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>Fun with AppleScript</title>
+         <description><![CDATA[<p>If you have <a href="http://guides.macrumors.com/System_Preferences#Universal_Access">Assistive Devices</a> turned on in System Preferences, you can do this silly thing in AppleScript:</p>
+<pre>
+activate application "ecto"
+tell application "System Events"
+  tell process "ecto"
+    tell menu bar 1
+      tell menu bar item 2
+        tell menu 1
+          tell menu item 3
+            tell menu 1
+              tell menu item 3
+                click
+              end tell
+            end tell
+          end tell
+        end tell
+      end tell
+    end tell
+  end tell
+end tell
+</pre>]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/01/fun_with_applescript.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/01/fun_with_applescript.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">tips</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">applescript</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+         <pubDate>Sat, 19 Jan 2008 15:14:31 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>Time-travelling</title>
+         <description><![CDATA[<p>You're a blogger and you're hanging out in Tokyo. You have 3 blogs, each in the US. All your blogs are set to GMT-7, but your Mac is in GMT+8. What is the best way to configure ecto?</p>
+<p>It all depends on what systems powers your blogs. I've <a href="http://blog.kung-foo.tv/archives/001532.html">written before</a> about how desktop blog clients talk to blog systems. It's all about sending text formatted as XML over simple HTTP. There's a specific way to format dates so both blog system and blog client can read it, the <a href="http://en.wikipedia.org/wiki/ISO_8601" style="text-decoration: underline; color: #AD5000;">ISO8601</a> format. For example, 2008-01-12T13:09Z gives date and time (separated by a 'T'). The 'Z' suffix means that the date is in GMT.</p>
+<p>The <a href="http://atomenabled.org/">Atom publishing protocol</a> gets this right. It <a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php#date.constructs">requires</a> that dates sent and received specify the timezone. There's no need to configure ecto as it knows Atom is a good boy. The problem is with <a href="http://www.xmlrpc.com/">XML-RPC</a>. It does not have that requirement, and each blog system interprets dates differently.</p>
+<p>The cheap way out for a blog client to talk to a blog system using XML-RPC is not to specify a date so that the blog system will use the current date and time. That does not always work. When sending an edit of an already published blog post the date will reset to current. In addition, sometimes the user may want to specify a different date for a post. In those cases, the lack of timezone information in the XML transferred can lead to unwanted time offsets.</p>
+<p>Some blog systems, like MovableType, parse ISO8601 dates with the Z suffix correctly, but still return dates without a timezone specification. In those cases, ecto needs to be told what timezone the blog is in. WordPress, on the other hand, has a custom field for GMT dates, so does not need special handling.</p>
+<p>I ran into trouble with TextPattern, though, and have not been able to work around it elegantly. I looked in the xmlrpc.php file of TextPattern and it not only ignores the timezone suffix of the received date (in this case, 'Z'), it also adjusts the date by the offset of the blog's timezone from GMT. If the server hosting TextPattern is set to a different timezone, that offset is also included. The only work-around is to send dates without a GMT specification and ignore any errors ecto pops up about mismatched dates. It's an issue for TextPattern to fix.</p>
+]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/01/timetravelling.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/01/timetravelling.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">tips</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">timezone</category>
+        
+         <pubDate>Mon, 14 Jan 2008 09:10:33 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>HTML to wiki converter</title>
+         <description><![CDATA[<p>From <a href="http://blogs.rave.ac.uk/blojsom/blog/mmetcalfe/">Miles Metcalfe</a>, a Perl script that converts HTML to wiki. It uses <a href="http://search.cpan.org/~diberri/HTML-WikiConverter-0.61/lib/HTML/WikiConverter.pm">http://search.cpan.org/~diberri/HTML-WikiConverter-0.61/lib/HTML/WikiConverter.pm</a> with the Confluence dialect installed.</p>
+<pre>
+#!/usr/bin/env perl
+# Confluencer.pl
+use HTML::WikiConverter;
+my $wc = new HTML::WikiConverter( dialect => 'Confluence' );
+
+my $ecto = do { local $/; <> };
+print $wc->html2wiki( $ecto );
+</pre>
+
+<p>Save the code to a file ending in '.pl' and put the file in ~/Library/Application Support/ecto3/scripts/. Restart ecto and you'll find it under the Scripts submenu of the Tools menu. </p>]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2008/01/html_to_wiki_converter.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2008/01/html_to_wiki_converter.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">scripts</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">perl</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">script</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">wiki</category>
+        
+         <pubDate>Mon, 07 Jan 2008 09:19:12 +0900</pubDate>
+      </item>
+      
+      <item>
+         <title>Growl add-on</title>
+         <description><![CDATA[<p>A plugin that will pop up <a href="http://twitter.com">Growl</a> notifications after completing several actions, such as retrieving blog posts or publishing a draft. Download <a href="http://infinite-sushi.com/software/ecto/download/GrowlNotifier.zip">GrowlNotifier.zip</a> (70.9Kb). Double-click to install or manually copy to the <code>~/Library/Application Support/ecto3/addons/</code> directory.</p>
+<p><strong>Usage</strong><br/>
+Once the addon is installed, launch ecto. Go to <span style="font: bold 13px 'Lucida Grande'">Settings</span> under the <span style="font: bold 13px 'Lucida Grande';">ecto</span> menu and choose the <span style="font: bold 13px 'Lucida Grande';">Weblog…</span> menu item. Click the "Editing" tab and then the "Defaults" sub-tab. Turn on "Send notifications".</p>]]></description>
+         <link>http://infinite-sushi.com/software/ecto/news/2007/12/growl_addon.php</link>
+         <guid>http://infinite-sushi.com/software/ecto/news/2007/12/growl_addon.php</guid>
+        
+          <category domain="http://www.sixapart.com/ns/types#category">plugins</category>
+        
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">addon</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">download</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">ecto3</category>
+        
+          <category domain="http://www.sixapart.com/ns/types#tag">twitter</category>
+        
+         <pubDate>Sun, 30 Dec 2007 22:45:07 +0900</pubDate>
+      </item>
+      
+   </channel>
+</rss>

@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>infinite-sushi.com - Welcome</title>
+	<link rel="stylesheet" type="text/css" href="../../../../_site/skin/style/style.css">
+	<script type="text/javascript" src="../../../../_site/skin/js/global.js"></script>
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://infinite-sushi.com/software/endo/news/tips/index.xml">	</head>
+
+<body>
+<div id="container">
+	<div id="banner">
+		<ul id="glob">
+	<li><a class="a" href="../../../../contact/index.html" title="//contact/">contact</a></li>
+</ul>		<h1><a href="../../../../index.html">infinite sushi</a></h1>
+			</div>
+	<div id="topbar">
+	<a class="off" id="ecto" href="../../../ecto/index.html" title="//software/ecto/"><span>ecto</span><br><em>desktop blogging</em></a>
+	<a class="on" id="endo" href="../../index.html" title="//software/endo/"><span>endo</span><br><em>total aggregation</em></a>
+	<a class="off" id="duh1001" href="../../../1001/index.html" title="//software/1001/"><span>1001</span><br><em>flickr accessory</em></a>
+<p class="clear"><!-- --></p></div>
+	<div id="center">
+		<div id="sidebar-one">
+		<ul class="navbar" id="loca">
+	<li class="off"><a href="../../screenshots/index.html" title="//software/endo/screenshots/">screenshots</a></li>
+	<li class="off"><a href="../../download/index.html" title="//software/endo/download/">download</a></li>
+	<li class="off"><a href="../../documentation/index.html" title="//software/endo/documentation/">documentation</a></li>
+	<li class="off"><a href="../../support/index.html" title="//software/endo/support/">support</a></li>
+	<li class="on"><a href="../index.html" title="//software/endo/news/">news</a></li>
+	<li class="off"><a href="../../icons/index.html" title="//software/endo/icons/">icons</a></li>
+	<li class="off"><a href="../../plugins/index.html" title="//software/endo/plugins/">plugins</a></li>
+	<li class="off"><a href="../../styles/index.html" title="//software/endo/styles/">styles</a></li>
+	<li class="off"><a href="../../scripts/index.html" title="//software/endo/scripts/">scripts</a></li>
+</ul>
+		</div>
+		<h2>Welcome</h2>
+		<div id="content">
+<!-- - - - - - - - - - - end top -->
+
+<div class="blogentry">
+	<a name="001758"></a>
+	<div class="posted">Fri, 2007-06-15</div>
+	<h4><a href="../2007/06/tune_my_feeds.php.html" title="Tune my feeds">Tune my feeds</a></h4>
+	<div class="discuss"></div>
+<div class="cats">&nbsp;</div>
+	<div class="entrybody">
+		<p>Adam Burt emails me to inform about a utility app he wrote: <a href="http://blogs.rave.ac.uk/blojsom/blog/aburt/Software/2007/05/25/TuneMyFeeds-1-1.html">TuneMyFeeds</a>. It converts articles to audio, so you can listen instead of read, which is useful if you're travelling with your iPod.</p>
+
+		
+	</div>
+</div>
+<div class="blogentry">
+	<a name="001708"></a>
+	<div class="posted">Wed, 2006-05-24</div>
+	<h4><a href="../2006/05/events_in_endo_a_screencast.php.html" title="Events in endo: A screencast">Events in endo: A screencast</a></h4>
+	<div class="discuss"></div>
+<div class="cats">&nbsp;</div>
+	<div class="entrybody">
+		<p>
+Drew McLellan made a really nice screencast of endo's events support. <a href="http://allinthehead.com/retro/288/hcalendar-in-endo">Check it out</a>.
+</p>
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/aggregator" rel="tag">aggregator</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a>, <a href="http://www.technorati.com/tag/events" rel="tag">events</a>, <a href="http://www.technorati.com/tag/hCalendar" rel="tag">hCalendar</a>, <a href="http://www.technorati.com/tag/ical" rel="tag">ical</a>, <a href="http://www.technorati.com/tag/microformat" rel="tag">microformat</a></p><!-- technorati tags end -->
+		
+	</div>
+</div>
+<div class="blogentry">
+	<a name="001691"></a>
+	<div class="posted">Mon, 2006-04-24</div>
+	<h4><a href="../2006/04/how_to_write_a_plugin.php.html" title="How to write a plugin">How to write a plugin</a></h4>
+	<div class="discuss"></div>
+<div class="cats">&nbsp;</div>
+	<div class="entrybody">
+		<p>
+endo's subscription handling can be extended using plugins. You can create plugins that configure a subscription, provide a feed, and/or parse a feed. endo comes pre-packaged with three plugins that handle subscriptions for del.icio.us, Flickr, and Technorati and one that runs user-defined scripts. To create your own plugin, you will need to know Objective-C and Apple's Cocoa Framework. 
+</p><p>
+Plugins are packages with the "endoplug" extension and the following directory stucture:
+</p><div align="left">
+<img src="../images/plugin-dir.jpg" height="184" width="222" alt="plugin directory structure">
+</div><p>
+An "endoplug" package must have an "Info.plist" at the root level, with keys as in the following example:
+</p><pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+  &lt;key&gt;CreatorName&lt;/key&gt;
+  &lt;string&gt;Adriaan Tijsseling&lt;/string&gt;
+  &lt;key&gt;CreatorEmail&lt;/key&gt;
+  &lt;string&gt;endo@dot.com<script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l,b=document.getElementsByTagName("script");l=b[b.length-1].previousSibling;a=l.getAttribute('data-cfemail');if(a){s='';r=parseInt(a.substr(0,2),16);for(j=2;a.length-j;j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}s=document.createTextNode(s);l.parentNode.replaceChild(s,l);}}catch(e){}})();
+/* ]]> */
+</script>&lt;/string&gt;
+  &lt;key&gt;CreatorWebsite&lt;/key&gt;
+  &lt;string&gt;http://blog.kung-foo.tv&lt;/string&gt;
+  &lt;key&gt;ComponentWebsite&lt;/key&gt;
+  &lt;string&gt;http://infinite-sushi.com/endo&lt;/string&gt;
+  &lt;key&gt;ComponentComments&lt;/key&gt;
+  &lt;string&gt;This plugin creates subscriptions for Technorati tags and cosmos.&lt;/string&gt;
+  &lt;key&gt;ComponentCopyright&lt;/key&gt;
+  &lt;string&gt;http://creativecommons.org/licenses/by-nc-nd/2.5/&lt;/string&gt;
+  &lt;key&gt;ComponentVersion&lt;/key&gt;
+  &lt;string&gt;1.0&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</pre><p>
+You can download the <a href="../../download/PluginSample.zip">XCode project for a sample plugin</a>. This sample illustrates the plugin protocol by showing how to get a feed from the World of Warcraft home page. This page has no feed, so we use our plugin to extract from the HTML contents. It's just for demo purposes. The code is heavily commented and should be transparent. To adapt this code to your own plugin, please make sure to rename ALL occurrences of "PluginSample", in particular the class and plugin name. This includes occurrences in the Target and Build settings. The plugin's name is defined in the build settings for the active target and is referred to in most places by $(PRODUCT_NAME). You also must conform to the plugin protocol defined in the PluginInterface.h file.
+</p><p>
+If you have questions about the code, feel free to ask in the comments. Based on user input I can probably write a more elaborated documentation. For now, please play around with the <a href="../../download/PluginSample.zip">sample code</a>.
+</p>
+
+
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/documentation" rel="tag">documentation</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a>, <a href="http://www.technorati.com/tag/plugin" rel="tag">plugin</a>, <a href="http://www.technorati.com/tag/sample%20code" rel="tag">sample code</a></p><!-- technorati tags end -->
+		
+	</div>
+</div>
+<div class="blogentry">
+	<a name="001679"></a>
+	<div class="posted">Tue, 2006-03-14</div>
+	<h4><a href="../2006/03/let_endo_users_read_your_blog.php.html" title="Let endo users read your blog in your style">Let endo users read your blog in your style</a></h4>
+	<div class="discuss"></div>
+<div class="cats">&nbsp;</div>
+	<div class="entrybody">
+		<p>
+Subscriptions in endo can be configured to display articles using the originating website's style-sheet. This gives bloggers the option to let users view their blog entries in their own style. For example, here's <a href="http://blog.kung-foo.tv/">my blog</a>'s subscription:
+</p>
+<div align="center">
+<img src="../images/sitestyle.jpg" height="176" width="315" alt="Site's style" class="framed"><br><br>
+</div>
+<p>
+The "Use site's css" option is checked. Any article displayed in endo's main viewer uses my blog's style-sheet. For this to work, the style sheet has to define an "aggregator" ID. This is the ID of the main DIV element in endo's HTML template for articles. Using this name, "aggregator", is general enough so that any other aggregator that supports external style-sheets can use it. It's always nice to have a standard after all. The rest of my CSS tries to match my blog's look as much as possible. I also define styles for INS and DEL, which are used by endo to mark changes in an article (you need to turn that on in Preferences). 
+</p><pre>#aggregator { margin:1em; }
+#aggregator #item {
+  padding: 1em 2.6em 2.6em 2.6em;
+  background-color: #fff;
+}
+#aggregator #item p {
+  margin: 0.8em 0 0.8em 0;
+  font-size:1em;
+  font-weight:normal;
+  line-height: 1.33em;
+  text-align:justify;
+}
+#aggregator #content { margin: 0; }
+#aggregator h1 { border-bottom: 1px solid #999; }
+#aggregator h1 a { color: #ad5000; text-decoration: none; }
+#aggregator h2 {
+	text-align: left;
+	font-size: 0.8em;
+	margin: 0.2em 0 0.3em 0;
+	color: #999;
+}
+#aggregator img { border: none; }
+#categories {
+	text-align: right;
+	font-size: 0.8em;
+	margin: 0.3em 0 0.3em 0;
+	color: #999;
+}
+ins.diff { background: #aaffab; text-decoration:none; }
+del.diff { background: #fddacb; text-decoration:none; }
+</pre><p>
+If your blog or website supports the #aggregator ID, <a href="../../../../contact/index.html">drop me a line</a>. Once I've got a list compiled, I will link them here. 
+</p>
+
+
+
+
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/aggregator" rel="tag">aggregator</a>, <a href="http://www.technorati.com/tag/css" rel="tag">css</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a></p><!-- technorati tags end -->
+		
+	</div>
+</div>
+
+
+<!-- - - - - - - - - - - start bottom -->
+		</div><!-- close content -->
+	</div><!-- close center -->
+	<div id="footer">
+		<a href="../../../../index.html" title="infinite-sushi.com">infinite-sushi.com</a><b>/</b><a href="../../../ecto/index.html">software</a><b>/</b><a href="../../index.html">endo</a><b>/</b><a href="../index.html">news</a><b>/</b><a href="index.html"></a>
+	</div>
+</div>
+<p id="gen">Generated in: <b>0.00149</b> seconds.</p><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1599194-5";
+urchinTracker();
+</script>
+
+
+</body></html>

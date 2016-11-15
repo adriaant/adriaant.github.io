@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard"><head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <meta name="generator" content="Movable Type 4.2rc5-en">
+
+   <link rel="stylesheet" href="http://infinite-sushi.com/software/ecto/news/styles-site.css" type="text/css">
+   <link rel="alternate" type="application/atom+xml" title="Atom" href="../../atom.xml">
+   <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="../../index.xml.rss" $=""></head><body class="layout-one-column">" /&gt;
+
+   <title>ecto: July 2008 Archives</title>
+
+   <link rel="start" href="../../index.html" title="Home">
+   <link rel="prev" href="../03/index.html" title="March 2008">
+   <link rel="next" href="../08/index.html" title="August 2008">
+
+
+   <div id="container">
+      <div id="container-inner" class="pkg">
+
+         <div id="banner">
+            <div id="banner-inner" class="pkg">
+               <h1 id="banner-header"><a href="../../index.html" accesskey="1">ecto</a></h1>
+               <h2 id="banner-description">All the news about ecto</h2>
+            </div>
+         </div>
+
+         <div id="pagebody">
+            <div id="pagebody-inner" class="pkg">
+               <div id="alpha">
+                  <div id="alpha-inner" class="pkg">
+                     
+                     <p class="content-nav">
+                        <a href="../03/index.html">« March 2008</a> |
+                        <a href="../../index.html">Main</a>
+                        | <a href="../08/index.html">August 2008 »</a>
+                     </p>
+                     
+                     
+                     
+
+                     <h2 class="date-header">July  3, 2008</h2>
+                     <a id="a001795"></a>
+                     <div class="entry" id="entry-1795">
+                        <h3 class="entry-header">Writing your own formatter</h3>
+                        <div class="entry-content">
+                           <div class="entry-body">
+                              <p>Some blog systems (Drupal, MovableType, TypePad) provide a blog client (such as <a href="../../../../../ecto.zip">ecto</a>) with a list of available text formats. This allows the user to write a post in ecto using, for example Markdown, and have ecto inform the blog system on publish that it should interpret the text as Markdown. </p>
+<p>Markdown and Textile formatters are built into ecto, so that when you preview your post the text is correctly converted to HTML. You can, however, create custom formatters for any formats that your blog system uses but isn't handled by ecto (e.g. MathML). </p>
+<p>To get you going, I have made the <a href="../../../download/Markdown.zip">source code of the Markdown formatter</a> available. </p>
+<p>Once you've downloaded and unpacked the sample, rename the project. Ideally, you'd use the name of the format provided by your blog system. Let's assume your formatter will be called MathML. In the Finder, rename "Markdown.xcodeproj" to "MathML.xcodeproj". Double-click the file to open it. Make sure to use the Release build configuration. In the Groups &amp; Files list, click on "Markdown" under the "Targets" section. Select File → Get Info. Under "Build", find the values for "Product Name" and "Prefix Header" and rename them. Under "Properties", assign a unique identifier, e.g. com.thirdparty.ecto_mathml and change the principal class to "MathML". Close the Get Info window.</p>
+<p>Back in Groups &amp; Files, rename any files containing "Markdown" so that they contain "MathML". You will then have to rename the class names inside those files as well. In other words, class Markdown becomes MathML, and so forth.</p>
+<p>Do NOT rename "FormatterInterface.h" and do NOT rename the "ECTOFormatterProtocol" protocol name.</p>
+<p>In Markdown.m, you will also need to change the code for <code>"-(NSString*)formatterKey</code>", "<code>-(NSString*)formatterDescription</code>" and "<code>-(BOOL)willHandleFormat</code>".</p>
+<p>The formatter plug-in has one entry point: "<code>- (NSString*)formatText:(NSString*)source</code>". That's where the conversion to HTML happens. For Markdown, I used Perl scripts, which are accessed via a pipe. See the code for details.</p>
+<p>Some blog systems, such as WordPress, do not provide a list of formatters. When you preview posts in ecto written for these blog systems, ecto uses a special built-in formatter, Generic.formatter. It analyzes the text and will format accordingly (it recognizes Markdown and Textile). You could write your own Generic.formatter and install it into ~/Library/Application Support/ecto3/formatters/ and it would override the built-in version. </p> 
+<p>If you have any questions about writing a formatter, please visit the <a href="http://infinite-sushi.com/support/viewforum.php?f=28">Developer support forum</a>.</p>
+
+                              
+                              <p class="entry-footer">
+                                 <span class="post-footers">Posted by Adriaan at 11:28 AM</span> <span class="separator">|</span> <a class="permalink" href="writing_your_own_formatter.php.html">Permalink</a>
+                                 
+                                 
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+</body></html>

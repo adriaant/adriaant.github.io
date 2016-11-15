@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+   <channel>
+      <title>endo plugins</title>
+      <link>http://infinite-sushi.com/software/endo/news/</link>
+      <description>All the news about endo</description>
+      <language>en</language>
+      <copyright>Copyright 2008</copyright>
+      <lastBuildDate>Thu, 03 Jan 2008 14:06:47 +0900</lastBuildDate>
+      <generator>http://www.sixapart.com/movabletype/?v=3.34</generator>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs> 
+
+            <item>
+         <title>Warcraft plugin</title>
+         <description><![CDATA[<p>
+The <a href="http://www.worldofwarcraft.com/">World of Warcraft website</a> does not have a feed. I wrote a little endo plugin that will create feed with the latest news on World of Warcraft. Download <a href="http://infinite-sushi.com/software/endo/download/plugins/Warcraft.zip">Warcraft.zip</a>, unpack and double-click the Warcraft.endoplug file. It should automatically install in the proper location. Once you install it, just hit cmd-N and choose "Warcraft" from the pop-up menu.
+</p><p>
+Source is included for those interested in examples of endo plugins.
+</p><p>
+This plugin has been updated for the newest World of Warcraft website.
+</p>
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/aggregator" rel="tag">aggregator</a>, <a href="http://www.technorati.com/tag/endo" rel="tag">endo</a>, <a href="http://www.technorati.com/tag/plugin" rel="tag">plugin</a>, <a href="http://www.technorati.com/tag/warcraft" rel="tag">warcraft</a></p><!-- technorati tags end -->]]></description>
+         <link>http://infinite-sushi.com/software/endo/news/2006/08/warcraft_plugin.php</link>
+         <guid>http://infinite-sushi.com/software/endo/news/2006/08/warcraft_plugin.php</guid>
+         <category>plugins</category>
+         <pubDate>Tue, 22 Aug 2006 15:12:19 +0900</pubDate>
+      </item>
+      
+   </channel>
+</rss>
